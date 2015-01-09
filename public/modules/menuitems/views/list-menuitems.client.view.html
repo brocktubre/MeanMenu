@@ -1,0 +1,31 @@
+<section data-ng-controller="MenuitemsController" data-ng-init="findCategories()">
+    <div class="container-fluid">
+        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12" style="background-color: #F3DEBA; border-top: 5px solid #5F0712; margin-top: 75px;">
+            <div class="alert alert-warning text-center" data-ng-hide="!menuitems.$resolved || menuitems.length">
+            	No Menuitems yet, why don't you <a href="/#!/menuitems/create">create one</a>?
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12" style="padding: 25px;">
+                <nav class="nav-sidebar">
+                    <ul class="nav tabs">
+                        <li>
+                            <a ng-click="showCategory(menuitem);'" ng-repeat="menuitem in menuitems | unique: 'category' | orderBy: 'category'" class="list-group-item">
+                                <p class="list-group-item-heading" data-ng-bind="menuitem.category"></p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <div class="tab-content">
+                    <div ng-show="tab === 'Appetizers'"> App
+                    </div>
+                    <div  ng-show="tab === 'Salads'"> Sal
+                    </div>
+                    <div ng-show="tab === 'Sandwiches'"> Sand
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</section>
+

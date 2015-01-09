@@ -1,0 +1,129 @@
+.content {
+	margin-top: 50;
+}
+.undecorated-link:hover {
+	text-decoration: none;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+	display: none !important;
+}
+.ng-invalid.ng-dirty {
+	border-color: #FA787E;
+}
+.ng-valid.ng-dirty {
+	border-color: #78FA89;
+}
+
+/* Post youeman */
+.fa{
+	padding: 0 5px;
+}
+
+body{
+	background-image: url('../img/background.jpg');
+	background-repeat: repeat;
+	background-size: 100%;
+	/*background-color: #F2D8C2;*/
+}
+
+.logo-box{
+	background-image: url('../img/leather-background.png');
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+.navbar-default {
+    background-color: #381402;
+    border-top: 2px dotted #E7E7E7;
+    border-bottom: 2px dotted #E7E7E7;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+
+.navbar .navbar-nav >  li{
+	font-size: 25px;
+	padding: 0 30;
+}
+
+.logo-padding{
+	margin-bottom: 0;
+}
+
+/*#footer-icons > a > .fa{
+	color: #333333;
+}*/
+
+/*Smaller slider*/
+.carousel {
+	margin-bottom: 0;
+	padding: 0 40 30 40;
+}
+
+.carousel-control {
+	left: -12px;
+}
+.carousel-control.right {
+	right: -12px;
+}
+
+.carousel-indicators {
+	right: 50%;
+	top: auto;
+	bottom: 0;
+	margin-right: -19px;
+}
+
+.carousel-indicators li {
+	background: #c0c0c0;
+}
+
+.carousel-indicators .active {
+background: #381402;
+}
+
+ /* Google Maps styling */
+ .google-maps {
+        position: relative;
+        padding-bottom: 75%; /* This is the aspect ratio*/
+        height: 0;
+        overflow: hidden;
+        width: 100%;
+    }
+.google-maps iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+    }
+ /* [END] Google Maps styling*/
+
+/* #menu-tabs li a{
+ 	font-size: 20;
+ }*/
+
+ .logo-box{
+ 	border: none;
+ }
+
+ input {
+	margin: 10 0;
+}
+
+input.ng-invalid.ng-dirty{
+	border: 1px solid red;
+}
+
+input.ng-valid.ng-dirty{
+	border: 1px solid green;
+}
