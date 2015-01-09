@@ -14,8 +14,8 @@ angular.module('menuitems').controller('MenuitemsController', ['$scope', '$state
 		$scope.create = function() {
 			// Create new Menuitem object
 			var menuitem = new Menuitems ({
-				category: $scope.category,
-				name: this.name,
+				category: toTitleCase($scope.category),
+				name: toTitleCase(this.name),
 				price: $scope.price,
 				description: this.description
 			});
@@ -76,10 +76,12 @@ angular.module('menuitems').controller('MenuitemsController', ['$scope', '$state
 			$scope.addNew = true;
 		};
 
+		// used in the view menu items, shows the selected category items of the menu
 		$scope.showCategoryItems = function(category){
 			$scope.categorySelected = category;
 		};
 
+		// grabs the currently selected menu category
 		$scope.getCategory = function(){
 			return $scope.categorySelected;
 
@@ -90,6 +92,11 @@ angular.module('menuitems').controller('MenuitemsController', ['$scope', '$state
 			$scope.menuitem = Menuitems.get({ 
 				menuitemId: $stateParams.menuitemId
 			});
+		};
+
+		// Converts the text the title case, example: shrimp po-boy -> Shrimp Po-boy
+		var toTitleCase = function(str){
+			return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 		};
 	}
 ]);
