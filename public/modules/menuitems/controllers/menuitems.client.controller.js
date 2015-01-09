@@ -9,7 +9,6 @@ angular.module('menuitems').controller('MenuitemsController', ['$scope', '$state
 			alert(category);
 		};
 
-
 		// Create new Menuitem
 		$scope.create = function() {
 			// Create new Menuitem object
@@ -46,6 +45,7 @@ angular.module('menuitems').controller('MenuitemsController', ['$scope', '$state
 					$location.path('menuitems');
 				});
 			}
+
 		};
 
 		// Update existing Menuitem
@@ -105,7 +105,7 @@ angular.module('menuitems').controller('MenuitemsController', ['$scope', '$state
 			
 		};
 
-		// Converts the text the title case, example: shrimp po-boy -> Shrimp Po-boy
+		// Converts the text the title case and adds s on the end, example: burger -> Burgers
 		var toTitleCase = function(str){
 			return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 		};
