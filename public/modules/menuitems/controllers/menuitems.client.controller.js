@@ -67,7 +67,22 @@ angular.module('menuitems').controller('MenuitemsController', ['$scope', '$state
 		// finds the categories of food
 		$scope.findCategories = function() {
 			$scope.menuitems = Menuitems.query();
-			
+
+		};
+
+		// used in the create menuitem page, clears out the input field for category
+		$scope.clearCategory = function(){
+			$scope.category = '';
+			$scope.addNew = true;
+		};
+
+		$scope.showCategoryItems = function(category){
+			$scope.categorySelected = category;
+		};
+
+		$scope.getCategory = function(){
+			return $scope.categorySelected;
+
 		};
 
 		// Find existing Menuitem

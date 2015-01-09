@@ -8,7 +8,7 @@
                 <nav class="nav-sidebar">
                     <ul class="nav tabs">
                         <li>
-                            <a ng-click="showCategory(menuitem);'" ng-repeat="menuitem in menuitems | unique: 'category' | orderBy: 'category'" class="list-group-item">
+                            <a ng-click="showCategoryItems(menuitem.category)" ng-repeat="menuitem in menuitems | unique: 'category' | orderBy: 'category'" class="list-group-item">
                                 <p class="list-group-item-heading" data-ng-bind="menuitem.category"></p>
                             </a>
                         </li>
@@ -17,11 +17,13 @@
             </div>
             <div class="col-md-8 col-sm-8 col-xs-12">
                 <div class="tab-content">
-                    <div ng-show="tab === 'Appetizers'"> App
-                    </div>
-                    <div  ng-show="tab === 'Salads'"> Sal
-                    </div>
-                    <div ng-show="tab === 'Sandwiches'"> Sand
+                    <div ng-show="categorySelected === getCategory()">
+                        <h2>{{categorySelected}}</h2>
+                        <p href="/#!/menuitem/menuitem._id" ng-if="menuitem.category === categorySelected" ng-repeat="menuitem in menuitems | orderBy: 'name'">
+                            <span style="font-weight: bold" data-ng-bind="menuitem.name"></span>
+                            <span class="text-warning" data-ng-bind="'$' + menuitem.price" style="font-weight: bold"></span>
+                            <br><br>
+                        </p>
                     </div>
                 </div>
             </div>
