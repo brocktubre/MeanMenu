@@ -87,6 +87,12 @@ angular.module('menuitems').controller('MenuitemsController', ['$scope', '$state
 
 		};
 
+		// adds menu item to cart
+		$scope.addToCart = function(item){
+			alert(item);
+
+		};
+
 		// Find existing Menuitem
 		$scope.findOne = function() {
 			$scope.menuitem = Menuitems.get({ 
@@ -98,5 +104,6 @@ angular.module('menuitems').controller('MenuitemsController', ['$scope', '$state
 		var toTitleCase = function(str){
 			return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 		};
+
 	}
 ]);

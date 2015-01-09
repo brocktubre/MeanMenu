@@ -19,9 +19,17 @@
                 <div class="tab-content">
                     <div ng-show="categorySelected === getCategory()">
                         <h2>{{categorySelected}}</h2>
-                        <p href="/#!/menuitem/menuitem._id" ng-if="menuitem.category === categorySelected" ng-repeat="menuitem in menuitems | orderBy: 'name'">
+                        <p href="/#!/menuitem/{{menuitem._id}}" ng-if="menuitem.category === categorySelected" ng-repeat="menuitem in menuitems | orderBy: 'name'">
                             <span style="font-weight: bold" data-ng-bind="menuitem.name"></span>
                             <span class="text-warning" data-ng-bind="'$' + menuitem.price" style="font-weight: bold"></span>
+
+                            <span class="btn btn-sm btn-success pull-right" ng-click="addToCart(menuitem._id)">
+                                Order now
+                                <i class="fa fa-plus-circle"></i>
+                            </span>
+                            <br>
+                            <span data-ng-bind="menuitem.description"></span>
+
                             <br><br>
                         </p>
                     </div>
