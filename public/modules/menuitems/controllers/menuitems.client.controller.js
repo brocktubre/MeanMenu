@@ -75,12 +75,6 @@ angular.module('menuitems').controller('MenuitemsController', ['$scope', '$state
 			$scope.addNew = true;
 		};
 
-		// used in the create menuitem page, clears out the input field for category
-		$scope.addNewCategory = function(){
-			$scope.clearCategory();
-			$location.path('menuitems/create');
-		};
-
 		// used in the view menu items, shows the selected category items of the menu
 		$scope.showCategoryItems = function(category){
 			$scope.categorySelected = category;

@@ -13,6 +13,10 @@ angular.module('menuitems').config(['$stateProvider',
 			url: '/menuitems/create',
 			templateUrl: 'modules/menuitems/views/create-menuitem.client.view.html'
 		}).
+		state('createNewMenuitem', {
+			url: '/menuitems/create-new',
+			templateUrl: 'modules/menuitems/views/create-new-menuitem.client.view.html'
+		}).
 		state('viewMenuitem', {
 			url: '/menuitems/:menuitemId',
 			templateUrl: 'modules/menuitems/views/view-menuitem.client.view.html'

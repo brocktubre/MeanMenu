@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12" style="background-color: #F3DEBA; border-top: 5px solid #5F0712; margin-top: 75px;">
             <div class="alert alert-warning text-center" data-ng-hide="!menuitems.$resolved || menuitems.length" style="margin-top: 25px;">
-            	No Menuitems yet, why don't you <a href="/#!/menuitems/create">create one</a>?
+            	No item on the menu, would you like to <a href="/#!/menuitems/create-new">create one</a>?
             </div>
             <div class="col-md-4 col-sm-4 col-xs-12" style="padding: 25px;"  ng-init="categorySelected = ''">
                 <nav class="nav-sidebar" data-ng-hide="!(!menuitems.$resolved || menuitems.length)">
@@ -13,7 +13,7 @@
                             </a>
                         </li>
                         <li data-ng-show="authentication.user">
-                            <a ng-click="addNewCategory();" class="list-group-item">
+                            <a href="/#!/menuitems/create-new" class="list-group-item">
                                 <p class="list-group-item-heading"> Add new category <i class="fa fa-plus-circle"></i></p>
                             </a>
                         </li> 
