@@ -6,36 +6,51 @@
             </div>
             <div class="col-md-4 col-sm-4 col-xs-12" style="padding: 25px;">
                 <nav class="nav-sidebar">
-                    <ul class="nav tabs">
+                    <ul class="nav tabs" ng-init="categorySelected = 'Appetizers'">
                         <li>
-                            <a ng-click="showCategoryItems(menuitem.category)" ng-repeat="menuitem in menuitems | unique: 'category' | orderBy: 'category'" class="list-group-item">
+                            <a ng-click="showCategoryItems(menuitem.category);" ng-repeat="menuitem in menuitems | unique: 'category' | orderBy: 'category'" class="list-group-item">
                                 <p class="list-group-item-heading" data-ng-bind="menuitem.category"></p>
                             </a>
                         </li>
+                        <li data-ng-show="authentication.user">
+                            <a ng-click="addNewCategory();" class="list-group-item">
+                                <p class="list-group-item-heading"> Add new category <i class="fa fa-plus-circle"></i></p>
+                            </a>
+                        </li> 
                     </ul>
                 </nav>
             </div>
-            <div class="col-md-8 col-sm-8 col-xs-12">
+            <div class="col-md-8 col-sm-8 col-xs-12" style="padding-bottom: 25px;">
                 <div class="tab-content">
                     <div ng-show="categorySelected === getCategory()">
                         <h2>{{categorySelected}}</h2>
-                        <p href="/#!/menuitem/{{menuitem._id}}" ng-if="menuitem.category === categorySelected" ng-repeat="menuitem in menuitems | orderBy: 'name'">
+                        <span href="/#!/menuitem/{{menuitem._id}}" ng-if="menuitem.category === categorySelected" ng-repeat="menuitem in menuitems | orderBy: 'name'">
                             <span style="font-weight: bold" data-ng-bind="menuitem.name"></span>
                             <span class="text-warning" data-ng-bind="'$' + menuitem.price" style="font-weight: bold"></span>
-
-                            <span class="btn btn-sm btn-success pull-right" ng-click="addToCart(menuitem._id)">
-                                Order now
+                            <span class="btn btn-sm btn-success pull-right" ng-click="addToCart(menuitem._id); && modal = true;" data-ng-show="!authentication.user">
+                                Order
                                 <i class="fa fa-plus-circle"></i>
+                            </span>
+                            <span class="pull-right">
+                                <a class="btn btn-sm btn-primary" href="/#!/menuitems/{{menuitem._id}}/edit" data-ng-show="authentication.user">
+                                    Edit
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a class="btn btn-sm btn-danger" data-ng-click="remove(menuitem);" data-ng-show="authentication.user">
+                                    <i class="fa fa-trash"></i>
+                                </a>
                             </span>
                             <br>
                             <span data-ng-bind="menuitem.description"></span>
-
                             <br><br>
-                        </p>
+                        </span>
+                        <a href="/#!/menuitems/create" class="btn btn-sm btn-success pull-right" data-ng-show="authentication.user && categorySelected != ''"> Add more {{categorySelected}}
+                            <i class="fa fa-plus-circle"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 </section>
 

@@ -67,13 +67,18 @@ angular.module('menuitems').controller('MenuitemsController', ['$scope', '$state
 		// finds the categories of food
 		$scope.findCategories = function() {
 			$scope.menuitems = Menuitems.query();
-
 		};
 
 		// used in the create menuitem page, clears out the input field for category
 		$scope.clearCategory = function(){
 			$scope.category = '';
 			$scope.addNew = true;
+		};
+
+		// used in the create menuitem page, clears out the input field for category
+		$scope.addNewCategory = function(){
+			$scope.clearCategory();
+			$location.path('menuitems/create');
 		};
 
 		// used in the view menu items, shows the selected category items of the menu
@@ -84,20 +89,20 @@ angular.module('menuitems').controller('MenuitemsController', ['$scope', '$state
 		// grabs the currently selected menu category
 		$scope.getCategory = function(){
 			return $scope.categorySelected;
-
 		};
 
 		// adds menu item to cart
 		$scope.addToCart = function(item){
 			alert(item);
-
 		};
 
 		// Find existing Menuitem
 		$scope.findOne = function() {
+			$scope.menuitems = Menuitems.query();
 			$scope.menuitem = Menuitems.get({ 
 				menuitemId: $stateParams.menuitemId
 			});
+			
 		};
 
 		// Converts the text the title case, example: shrimp po-boy -> Shrimp Po-boy

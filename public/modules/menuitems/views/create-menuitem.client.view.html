@@ -1,10 +1,10 @@
 <section data-ng-controller="MenuitemsController" data-ng-init="findCategories()">
     <div class="container-fluid">
-        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12" style="border: 2px solid #F3DEBA; border-top: none; background-color: #F3DEBA; margin-top: 75px;">
+        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12" style="border: 2px solid #F3DEBA; border-top: none; background-color: #F3DEBA; margin-top: 75px; padding-top: 25px;">
             <div class="col-md-12">
                 <form class="form-horizontal" data-ng-submit="create()" novalidate>
                     <fieldset>
-                        <div class="form-group" ng-init="addNew = false" >
+                        <div class="form-group" >
                             <div class="col-md-6">
                                 <div class="col-md-12">
                                     <div class="controls">
@@ -18,7 +18,7 @@
                                             </option>
                                         </select>
                                         <!-- Category not defined -->
-                                        <input type="text" ng-model="category" ng-show="addNew" id="category" class="form-control" placeholder="Add New Category" required>
+                                        <input type="text" ng-model="category" ng-show="addNew" id="category" class="form-control" placeholder="New Category" required>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -38,13 +38,13 @@
                                 <div class="col-md-12">
                                     <label class="control-label" for="description">Description</label>
                                     <div class="controls">
-                                        <textarea type="text" data-ng-model="description" id="description" class="form-control" placeholder="Description" rows="8"></textarea>
+                                        <textarea type="text" data-ng-model="description" id="description" class="form-control" placeholder="Description" rows="8" style="resize: none;"></textarea>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="submit" class="btn btn-success pull-right">
+                            <button type="submit" class="btn btn-success pull-right"> Add item <i class="fa fa-plus-circle"></i></button>
                         </div>
                         <div data-ng-show="error" class="text-danger">
                          <strong data-ng-bind="error"></strong>
