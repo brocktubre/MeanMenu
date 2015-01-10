@@ -31,6 +31,10 @@
 			<li ui-route="/signin" ng-class="{active: $uiRoute}">
 				<a href="/#!/signin">Sign In</a>
 			</li>
+			<!-- <li ui-route="/signin" ng-class="{active: $uiRoute}"> -->
+			<li>
+				<a href="#"><i class="fa fa-cart"></i>Cart: {{cartitems}}</a>
+			</li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right" data-ng-show="authentication.user">
 			<li class="dropdown">

@@ -27,7 +27,7 @@
                         <span href="/#!/menuitem/{{menuitem._id}}" ng-if="menuitem.category === categorySelected" ng-repeat="menuitem in menuitems | orderBy: 'name'">
                             <span style="font-weight: bold" data-ng-bind="menuitem.name"></span>
                             <span class="text-warning" data-ng-bind="'$' + menuitem.price" style="font-weight: bold"></span>
-                            <span class="btn btn-sm btn-success pull-right" ng-click="addToCart(menuitem._id); && modal = true;" data-ng-show="!authentication.user">
+                            <span class="btn btn-sm btn-success pull-right" ng-click="addToCart(menuitem._id);" data-ng-show="!authentication.user">
                                 Order
                                 <i class="fa fa-plus-circle"></i>
                             </span>
