@@ -1,56 +1,54 @@
 <section data-ng-controller="MenuitemsController" data-ng-init="findOne()">
-    <div class="container-fluid">
-        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12" style="background-color: #F3DEBA; border-top: 5px solid #5F0712; margin-top: 75px;">
-            <div class="col-md-12">
-                <form class="form-horizontal" data-ng-submit="update()" novalidate>
-                    <fieldset>
-                        <div class="form-group">
-                            <div class="col-md-6">
-                                <div class="col-md-12">
-                                    <div class="controls">
-                                        <label class="control-label" for="category">Category</label>
-                                        <i class="fa fa-plus-circle text-success" ng-show="!addNew" ng-click="clearCategory();"></i>
-                                        <i class="fa fa-minus-circle text-success" ng-show="addNew" ng-click="addNew = false"></i>
-                                        <!-- Category defined -->
-                                        <select data-ng-model="menuitem.category" ng-show="!addNew" id="category" class="form-control" >
-                                            <option ng-repeat="menuitem in menuitems | unique: 'category' | orderBy: 'category'"> 
-                                                {{menuitem.category}}
-                                            </option>
-                                        </select>
-                                        <!-- Category not defined -->
-                                        <input type="text" data-ng-model="menuitem.category" ng-show="addNew" id="category" class="form-control" placeholder="Add New Category" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <label class="control-label" for="name">Name</label>
-                                    <div class="controls">
-                                        <input type="text" data-ng-model="menuitem.name" id="name" class="form-control" placeholder="Name" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <label class="control-label" for="price">Price</label>
-                                    <div class="controls">
-                                        <input type="value" data-ng-model="menuitem.price" id="price" class="form-control" placeholder="Price" required>
-                                    </div>
+    <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12" style="background-color: #F3DEBA; border-top: 5px solid #5F0712; ">
+        <div class="col-md-12">
+            <form class="form-horizontal" data-ng-submit="update()" novalidate>
+                <fieldset>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <div class="col-md-12">
+                                <div class="controls">
+                                    <label class="control-label" for="category">Category</label>
+                                    <i class="fa fa-plus-circle text-success" ng-show="!addNew" ng-click="clearCategory();"></i>
+                                    <i class="fa fa-minus-circle text-success" ng-show="addNew" ng-click="addNew = false"></i>
+                                    <!-- Category defined -->
+                                    <select data-ng-model="menuitem.category" ng-show="!addNew" id="category" class="form-control" >
+                                        <option ng-repeat="menuitem in menuitems | unique: 'category' | orderBy: 'category'"> 
+                                            {{menuitem.category}}
+                                        </option>
+                                    </select>
+                                    <!-- Category not defined -->
+                                    <input type="text" data-ng-model="menuitem.category" ng-show="addNew" id="category" class="form-control" placeholder="Add New Category" required>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="col-md-12">
-                                    <label class="control-label" for="description">Description</label>
-                                    <div class="controls">
-                                        <textarea type="text" data-ng-model="menuitem.description" id="description" class="form-control" placeholder="Description" rows="8" style="resize: none;"></textarea>
-                                    </div>
+                            <div class="col-md-12">
+                                <label class="control-label" for="name">Name</label>
+                                <div class="controls">
+                                    <input type="text" data-ng-model="menuitem.name" id="name" class="form-control" placeholder="Name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="control-label" for="price">Price</label>
+                                <div class="controls">
+                                    <input type="value" data-ng-model="menuitem.price" id="price" class="form-control" placeholder="Price" required>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <input type="submit" value="Update" class="btn btn-warning pull-right">
+                        <div class="col-md-6">
+                            <div class="col-md-12">
+                                <label class="control-label" for="description">Description</label>
+                                <div class="controls">
+                                    <textarea type="text" data-ng-model="menuitem.description" id="description" class="form-control" placeholder="Description" rows="8" style="resize: none;"></textarea>
+                                </div>
+                            </div>
                         </div>
-                        <div data-ng-show="error" class="text-danger">
-                         <strong data-ng-bind="error"></strong>
-                     </div>
-                 </fieldset>
-             </form>
-         </div>
-     </div>
- </section>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Update" class="btn btn-warning pull-right">
+                    </div>
+                    <div data-ng-show="error" class="text-danger">
+                       <strong data-ng-bind="error"></strong>
+                   </div>
+               </fieldset>
+           </form>
+       </div>
+   </section>

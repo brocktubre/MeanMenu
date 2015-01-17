@@ -32,18 +32,20 @@ body{
 	background-size: 100%;
 }
 
-.navbar-default {
+.navbar-inverse {
     background-color: #381402;
     border-top: 2px dotted #E7E7E7;
     border-bottom: 2px dotted #E7E7E7;
     margin-top: 0;
     margin-bottom: 0;
+    border-image: none;
 }
 
 .navbar .navbar-nav {
   display: inline-block;
   float: none;
   vertical-align: top;
+  border-radius: 0;
 }
 
 .navbar .navbar-collapse {
@@ -51,8 +53,7 @@ body{
 }
 
 .navbar .navbar-nav >  li{
-	font-size: 25px;
-	padding: 0 30;
+	font-size: 20px;
 }
 
 .logo-padding{
@@ -114,6 +115,7 @@ background: #381402;
 
  .logo-box{
  	border: none;
+ 	border-radius: 0;
  }
 
  input {
