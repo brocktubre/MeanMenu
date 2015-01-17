@@ -1,5 +1,4 @@
 <div data-ng-controller="HeaderController">
-
 	<div class="container-fluid" style="margin-top: 25px;" data-ng-hide="authentication.user">
 		<div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12">
 			<div class="pull-right" ui-route="/signin" ng-class="{active: $uiRoute}">
@@ -63,14 +62,14 @@
 					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right" data-ng-hide="authentication.user">
-					<!-- <li ui-route="/signup" ng-class="{active: $uiRoute}">
-						<a href="/#!/signup">Sign Up</a>
+					<!-- <li ui-route="/signup-customer" ng-class="{active: $uiRoute}">
+						<a href="/#!/signup-customer">Customer Sign Up</a>
 					</li> -->
 					<li class="divider-vertical"></li>
 					<!-- Removed this ng-class="{active: $uiRoute}" -->
 					<!-- This sign in should be for customers -->
-					<li ui-route="/signin">
-						<a href="#">Sign In</a>
+					<li ui-route="/signin-customer">
+						<a href="/#!/signin-customer">Customer Login</a>
 					</li>
 					<!-- <li ui-route="/signin" ng-class="{active: $uiRoute}"> -->
 					<li>

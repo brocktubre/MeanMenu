@@ -21,9 +21,17 @@ angular.module('users').config(['$stateProvider',
 			url: '/signup',
 			templateUrl: 'modules/users/views/authentication/signup.client.view.html'
 		}).
+		state('signup-customer', {
+			url: '/signup-customer',
+			templateUrl: 'modules/users/views/authentication/signup-customer.client.view.html'
+		}).
 		state('signin', {
 			url: '/signin',
 			templateUrl: 'modules/users/views/authentication/signin.client.view.html'
+		}).
+		state('signin-customer', {
+			url: '/signin-customer',
+			templateUrl: 'modules/users/views/authentication/signin-customer.client.view.html'
 		}).
 		state('forgot', {
 			url: '/password/forgot',
