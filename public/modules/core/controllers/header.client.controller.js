@@ -28,11 +28,8 @@ angular.module('core').controller('HeaderController', ['$scope', 'Authentication
 
 		$scope.cartitems = 0;
 
-		$scope.$watch(function(){
-			return window.innerWidth;
-		}, function(width) {
-			if(width > 800)
-				$scope.pull_right = 'pull-right';
-		});
+		
+		if(window.innerWidth > 800)
+			$scope.pull_right = 'pull-right';
 	}
-	]);
+]);
