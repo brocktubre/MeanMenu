@@ -16,5 +16,8 @@ angular.module('core').controller('HeaderController', ['$scope', 'Authentication
 		});
 
 		$scope.cartitems = 0;
+
+		if(window.innerWidth > 800)
+			$scope.pull_right = 'pull-right';
 	}
 ]);

@@ -28,7 +28,7 @@ body{
 
 .logo-box{
 	background-image: url('../img/leather-background.png');
-	background-repeat: no-repeat;
+	background-repeat: repeat;
 	background-size: 100%;
 }
 
@@ -43,7 +43,6 @@ body{
 }
 
 .navbar .navbar-nav {
-  display: inline-block;
   float: none;
   vertical-align: top;
   border-radius: 0;
