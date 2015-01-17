@@ -1,4 +1,13 @@
 <div data-ng-controller="HeaderController">
+
+	<div class="container-fluid" style="margin-top: 25px;" data-ng-hide="authentication.user">
+		<div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12">
+			<div class="pull-right" ui-route="/signin" ng-class="{active: $uiRoute}">
+				<a href="/#!/signin" class="btn btn-sm btn-default"><i class="fa fa-lock"></i>Employee Login</a>
+			</div>
+		</div>
+	</div>
+
 	<!-- Logo in Box -->
 	<div class="container-fluid" style="margin-top: 25px;">
 		<div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12 well logo-box text-center logo-padding" style="border-top: 5px solid #F3DEBA;">
@@ -9,7 +18,7 @@
 
 	<!-- Navigation Bar -->
 	<div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12">
-		<div class="navbar navbar-inverse" style="background-color: #381402;">
+		<div class="navbar navbar-inverse">
 			<div class="navbar-header">
 				<button class="navbar-toggle" type="button" data-ng-click="toggleCollapsibleMenu()">
 					<span class="sr-only">Toggle navigation</span>
@@ -38,8 +47,10 @@
 						<a href="/#!/signup">Sign Up</a>
 					</li> -->
 					<li class="divider-vertical"></li>
-					<li ui-route="/signin" ng-class="{active: $uiRoute}">
-						<a href="/#!/signin">Sign In</a>
+					<!-- Removed this ng-class="{active: $uiRoute}" -->
+					<!-- This sign in should be for customers -->
+					<li ui-route="/signin">
+						<a href="#">Sign In</a>
 					</li>
 					<!-- <li ui-route="/signin" ng-class="{active: $uiRoute}"> -->
 					<li>

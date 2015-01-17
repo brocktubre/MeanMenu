@@ -34,6 +34,7 @@ body{
 
 .navbar-inverse {
     background-color: #381402;
+    border: black;
     border-top: 2px dotted #E7E7E7;
     border-bottom: 2px dotted #E7E7E7;
     margin-top: 0;
@@ -46,10 +47,6 @@ body{
   float: none;
   vertical-align: top;
   border-radius: 0;
-}
-
-.navbar .navbar-collapse {
-  text-align: center;
 }
 
 .navbar .navbar-nav >  li{
@@ -128,4 +125,12 @@ input.ng-invalid.ng-dirty{
 
 input.ng-valid.ng-dirty{
 	border: 1px solid green;
+}
+
+.btn-default, .btn-default:active, .btn-default:visited {
+	color: black;
+}
+
+.btn-default:hover {
+	color: #777777;
 }
