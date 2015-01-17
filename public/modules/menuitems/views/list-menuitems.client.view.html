@@ -11,7 +11,7 @@
                             <p class="list-group-item-heading" data-ng-bind="menuitem.category"></p>
                         </a>
                     </li>
-                    <li data-ng-show="authentication.user">
+                    <li data-ng-show="user === 'admin'">
                         <a href="/#!/menuitems/create-new" class="list-group-item">
                             <p class="list-group-item-heading"> Add new category <i class="fa fa-plus-circle"></i></p>
                         </a>
@@ -26,16 +26,16 @@
                     <span href="/#!/menuitem/{{menuitem._id}}" ng-if="menuitem.category === categorySelected" ng-repeat="menuitem in menuitems | orderBy: 'name'">
                         <span style="font-weight: bold" data-ng-bind="menuitem.name"></span>
                         <span class="text-warning" data-ng-bind="'$' + menuitem.price" style="font-weight: bold"></span>
-                        <span class="btn btn-sm btn-success pull-right" ng-click="addToCart(menuitem._id);" data-ng-show="!authentication.user">
+                        <span class="btn btn-sm btn-success pull-right" ng-click="addToCart(menuitem._id);" data-ng-show="user === 'customer'">
                             Order
                             <i class="fa fa-plus-circle"></i>
                         </span>
                         <span class="pull-right">
-                            <a class="btn btn-sm btn-primary" href="/#!/menuitems/{{menuitem._id}}/edit" data-ng-show="authentication.user">
+                            <a class="btn btn-sm btn-primary" href="/#!/menuitems/{{menuitem._id}}/edit" data-ng-show="authentication.user.roles[1] === 'admin'">
                                 Edit
                                 <i class="fa fa-edit"></i>
                             </a>
-                            <a class="btn btn-sm btn-danger" data-ng-click="remove(menuitem);" data-ng-show="authentication.user">
+                            <a class="btn btn-sm btn-danger" data-ng-click="remove(menuitem);" data-ng-show="user === 'admin'">
                                 <i class="fa fa-trash"></i>
                             </a>
                         </span>
@@ -43,7 +43,7 @@
                         <span data-ng-bind="menuitem.description"></span>
                         <br><br>
                     </span>
-                    <a href="/#!/menuitems/create" class="btn btn-sm btn-success pull-right" data-ng-show="authentication.user && categorySelected != ''"> Add more {{categorySelected}}
+                    <a href="/#!/menuitems/create" class="btn btn-sm btn-success pull-right" data-ng-show="user === 'admin' && categorySelected != ''"> Add more {{categorySelected}}
                         <i class="fa fa-plus-circle"></i>
                     </a>
                 </div>

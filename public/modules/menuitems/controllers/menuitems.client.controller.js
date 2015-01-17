@@ -16,6 +16,13 @@ angular.module('menuitems')
 		function($scope, $stateParams, $location, Authentication, Menuitems) {
 			$scope.authentication = Authentication;
 
+				if($scope.authentication.user.roles[1] === 'admin')
+					$scope.user = 'admin';
+				else
+					$scope.user = 'customer';
+
+
+
 			$scope.showCategory = function(category){
 				alert(category);
 			};
