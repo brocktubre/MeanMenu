@@ -1,8 +1,15 @@
-<section class="row" data-ng-controller="SettingsController">
+<section data-ng-controller="SettingsController">
+	<div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12 text-center" style="background-color: #F3DEBA;">
 	<h3 class="col-md-12 text-center">Edit your profile</h3>
-	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+	<div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-12">
 		<form name="userForm" data-ng-submit="updateUserProfile(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
 			<fieldset>
+				<div data-ng-show="success" class="text-center alert alert-success">
+					<strong>Profile Saved Successfully</strong>
+				</div>
+				<div data-ng-show="error" class="text-center alert alert-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
 				<div class="form-group">
 					<label for="firstName">First Name</label>
 					<input type="text" id="firstName" name="firstName" class="form-control" data-ng-model="user.firstName" placeholder="First Name">
@@ -20,15 +27,11 @@
 					<input type="text" id="username" name="username" class="form-control" data-ng-model="user.username" placeholder="Username">
 				</div>
 				<div class="text-center form-group">
-					<button type="submit" class="btn btn-large btn-primary">Save Profile</button>
-				</div>
-				<div data-ng-show="success" class="text-center text-success">
-					<strong>Profile Saved Successfully</strong>
-				</div>
-				<div data-ng-show="error" class="text-center text-danger">
-					<strong data-ng-bind="error"></strong>
+					<button type="submit" class="btn btn-large btn-success col-md-12 col-sm-12 col-xs-12">Save Profile</button>
 				</div>
 			</fieldset>
 		</form>
+		<div style="min-height: 25px;"></div>
 	</div>
+</div>
 </section>

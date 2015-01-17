@@ -7,16 +7,15 @@ angular.module('core').controller('HeaderController', ['$scope', 'Authentication
 		$scope.menu = Menus.getMenu('topbar');
 
 		$scope.navbaritems = [
-			{title:'Home', uiRoute:'/#!/', link:'/#!/'},
-			{title:'Menu', uiRoute:'/menu', link:'menuitems'},
-			{title:'Upcoming Events', uiRoute:'/events', link:'events'},
+		{title:'Home', uiRoute:'/#!/', link:'/#!/'},
+		{title:'Menu', uiRoute:'/menu', link:'menuitems'},
+		{title:'Upcoming Events', uiRoute:'/events', link:'events'},
 		];
 
-
 		if($scope.authentication.user.roles[1] === 'admin')
-					$scope.user = 'admin';
-				else
-					$scope.user = 'customer';
+			$scope.user = 'admin';
+		else
+			$scope.user = 'customer';
 
 		$scope.toggleCollapsibleMenu = function() {
 			$scope.isCollapsed = !$scope.isCollapsed;
@@ -29,7 +28,11 @@ angular.module('core').controller('HeaderController', ['$scope', 'Authentication
 
 		$scope.cartitems = 0;
 
-		if(window.innerWidth > 800)
-			$scope.pull_right = 'pull-right';
+		$scope.$watch(function(){
+			return window.innerWidth;
+		}, function(width) {
+			if(width > 800)
+				$scope.pull_right = 'pull-right';
+		});
 	}
-]);
+	]);

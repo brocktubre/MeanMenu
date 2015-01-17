@@ -66,43 +66,16 @@
 						</ul>
 					</li>
 				</ul>
-				<ul class="nav navbar-nav navbar-right" data-ng-hide="authentication.user">
-					<!-- <li ui-route="/signup-customer" ng-class="{active: $uiRoute}">
-						<a href="/#!/signup-customer">Customer Sign Up</a>
-					</li> -->
+				<ul class="nav navbar-nav navbar-right" data-ng-hide="user === 'admin'">
 					<li class="divider-vertical"></li>
-					<!-- Removed this ng-class="{active: $uiRoute}" -->
 					<!-- This sign in should be for customers -->
 					<li ui-route="/signin-customer">
 						<a href="/#!/signin-customer">Customer Login</a>
 					</li>
-					<!-- <li ui-route="/signin" ng-class="{active: $uiRoute}"> -->
 					<li>
 						<a href="#"><i class="fa fa-shopping-cart"></i>Cart: {{cartitems}}</a>
 					</li>
 				</ul>
-				<!-- <ul class="nav navbar-nav navbar-right" data-ng-show="authentication.user">
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<span data-ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu">
-							<li>
-								<a href="/#!/settings/profile">Edit Profile</a>
-							</li>
-							<!-- <li>
-								<a href="/#!/settings/accounts">Manage Social Accounts</a>
-							</li>
-							<li data-ng-show="authentication.user.provider === 'local'">
-								<a href="/#!/settings/password">Change Password</a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="/auth/signout">Signout</a>
-							</li>
-						</ul>
-					</li>
-				</ul> -->
 			</nav>
 		</div>
 	</div>
