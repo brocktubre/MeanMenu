@@ -9,7 +9,7 @@
     <div class="upcoming-events">
       <a data-ng-repeat="upcomingEvent in upcomingEvents | orderBy: 'date' | filter: futureEvents" data-ng-href="#!/upcoming-events/{{upcomingEvent._id}}">
         <h3>{{upcomingEvent.date | date: 'MM/dd'}} - <span data-ng-bind="upcomingEvent.name" class="font-weight: bold;"></span></h3>
-        <p "upcomingEvent.startTime === ''">{{upcomingEvent.startTime}}<span data-ng-hide="upcomingEvent.endTime === ''" data-ng-bind="+ '-' + upcomingEvent.endTime"></span><span data-ng-hide="upcomingEvent.startTime === ''"></span><span data-ng-hide="upcomingEvent.cover === null || upcomingEvent.cover === 0" data-ng-bind="', $' + upcomingEvent.cover + ' cover'"></span><span style="font-style: italic;" data-ng-bind="' ' + upcomingEvent.details"></span></p>
+        <p "upcomingEvent.startTime === ''">{{upcomingEvent.startTime}}<span data-ng-hide="upcomingEvent.endTime === ''" data-ng-bind="+ ' - ' + upcomingEvent.endTime"></span><span data-ng-hide="upcomingEvent.startTime === ''"></span><span data-ng-hide="upcomingEvent.cover === null || upcomingEvent.cover === 0" data-ng-bind="', $' + upcomingEvent.cover + ' cover'"></span><span style="font-style: italic;" data-ng-bind="' ' + upcomingEvent.details"></span></p>
       </a>
     </div>
   </div>

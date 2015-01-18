@@ -27,9 +27,11 @@
                             </div>
                             <div class="col-md-4">
                                 <label class="control-label" for="startTime">Starting time</label>
-                                <div class="controls">
-                                    <input type="text" data-ng-model="upcomingEvent.startTime" id="startTime" class="form-control" placeholder="Starting time">
-                                </div>
+                                <select ng-model="upcomingEvent.startTime" id="startTime" class="form-control" >
+                                    <option ng-repeat="item in timeList"> 
+                                            {{item}}
+                                    </option>
+                                </select>
                             </div>
                             <div class="col-md-4">
                                 <label class="control-label" for="endTime">Ending time</label>
