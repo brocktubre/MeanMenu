@@ -2,30 +2,28 @@
 
 // Menuitems controller
 angular.module('menuitems')
-	.service('cartService', function () {
-        return {
-            notes:function () {
-            },
-            addItem:function (menuitem) {
-            },
-            deleteItem:function (id) {
-            }
-        };
-    })
-	.controller('MenuitemsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Menuitems',
-		function($scope, $stateParams, $location, Authentication, Menuitems) {
-			$scope.authentication = Authentication;
+.service('cartService', function () {
+	return {
+		notes:function () {
+		},
+		addItem:function (menuitem) {
+		},
+		deleteItem:function (id) {
+		}
+	};
+})
+.controller('MenuitemsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Menuitems',
+	function($scope, $stateParams, $location, Authentication, Menuitems) {
+		$scope.authentication = Authentication;
 
-				if($scope.authentication.user.roles[1] === 'admin')
-					$scope.user = 'admin';
-				else
-					$scope.user = 'customer';
+			// defines the current user premission
+			if($scope.authentication.user.roles === undefined)
+				$scope.user = 'customer';
+			else if($scope.authentication.user.roles[1] === 'admin')
+				$scope.user = 'admin';
+			else if($scope.authentication.user.roles[0] === 'user')
+				$scope.user = 'customer';
 
-
-
-			$scope.showCategory = function(category){
-				alert(category);
-			};
 
 			// Create new Menuitem
 			$scope.create = function() {
@@ -123,4 +121,4 @@ angular.module('menuitems')
 			};
 
 		}
-]);
+		]);

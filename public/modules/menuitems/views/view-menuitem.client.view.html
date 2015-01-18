@@ -3,9 +3,8 @@
 			<div class="page-header">
 				<h1 data-ng-bind="menuitem.name"></h1>
 				<p class="text-warning" style="font-weight: bold;" data-ng-bind="'$' + menuitem.price"></p>
-				<p data-ng-bind="menuitem.description"></p>
-				<br>
-				<p data-ng-bind="'Category: ' + menuitem.category"></p>
+				<p style="font-style: italic;" data-ng-bind="menuitem.description"></p>
+				<p class="text-muted" data-ng-bind="'Category: ' + menuitem.category"></p>
 				<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == menuitem.user._id))">
 					<a class="btn btn-sm btn-success" href="/#!/menuitems/create">
 						Add more {{menuitem.category}}<i class="fa fa-plus-circle"></i>
@@ -18,13 +17,5 @@
 					</a>
 				</div>
 			</div>
-	<!-- <small>
-		<em class="text-muted">
-			Posted on
-			<span data-ng-bind="menuitem.created | date:'mediumDate'"></span>
-			by
-			<span data-ng-bind="menuitem.user.displayName"></span>
-		</em>
-	</small> -->
 	</div>
 </section>

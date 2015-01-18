@@ -12,9 +12,13 @@ angular.module('core').controller('HeaderController', ['$scope', 'Authentication
 		{title:'Upcoming Events', uiRoute:'/events', link:'events'},
 		];
 
-		if($scope.authentication.user.roles[1] === 'admin')
+
+		// defines the current user premission
+		if($scope.authentication.user.roles === undefined)
+			$scope.user = 'new-customer';
+		else if($scope.authentication.user.roles[1] === 'admin')
 			$scope.user = 'admin';
-		else
+		else if($scope.authentication.user.roles[0] === 'user')
 			$scope.user = 'customer';
 
 		$scope.toggleCollapsibleMenu = function() {

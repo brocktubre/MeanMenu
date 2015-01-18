@@ -29,8 +29,6 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 					$scope.authentication.user = response;
 					$location.path('/');
 					window.location.reload();
-
-			
 				
 			}).error(function(response) {
 				$scope.error = response.message;

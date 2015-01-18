@@ -1,6 +1,6 @@
 <section data-ng-controller="MenuitemsController" data-ng-init="findCategories()">
     <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12" style="background-color: #F3DEBA; border-top: 5px solid #5F0712;">
-            <div class="alert alert-warning text-center" data-ng-hide="!menuitems.$resolved || menuitems.length" style="margin-top: 25px;">
+            <div class="alert alert-warning text-center" data-ng-hide="!menuitems.$resolved || menuitems.length || user === 'customer'" style="margin-top: 25px;">
              No item on the menu, would you like to <a href="/#!/menuitems/create-new">create one</a>?
          </div>
          <div class="col-md-4 col-sm-4 col-xs-12" style="padding: 25px;"  ng-init="categorySelected = ''">
@@ -8,7 +8,7 @@
                 <ul class="nav tabs">
                     <li>
                         <a ng-click="showCategoryItems(menuitem.category);" ng-repeat="menuitem in menuitems | unique: 'category' | orderBy: 'category'" class="list-group-item">
-                            <p class="list-group-item-heading" data-ng-bind="menuitem.category"></p>
+                            <p class="list-group-item-heading" style="font-size: 18px;" data-ng-bind="menuitem.category"></p>
                         </a>
                     </li>
                     <li data-ng-show="user === 'admin'">
@@ -24,26 +24,26 @@
                 <div ng-if="categorySelected === getCategory()">
                     <h2 data-ng-bind="categorySelected"></h2>
                     <span href="/#!/menuitem/{{menuitem._id}}" ng-if="menuitem.category === categorySelected" ng-repeat="menuitem in menuitems | orderBy: 'name'">
-                        <span style="font-weight: bold" data-ng-bind="menuitem.name"></span>
+                        <span style="font-weight: bold;" data-ng-bind="menuitem.name"></span>
                         <span class="text-warning" data-ng-bind="'$' + menuitem.price" style="font-weight: bold"></span>
                         <span class="btn btn-sm btn-success pull-right" ng-click="addToCart(menuitem._id);" data-ng-show="user === 'customer'">
                             Order
                             <i class="fa fa-plus-circle"></i>
                         </span>
-                        <span class="pull-right">
-                            <a class="btn btn-sm btn-primary" href="/#!/menuitems/{{menuitem._id}}/edit" data-ng-show="authentication.user.roles[1] === 'admin'">
+                        <span class="pull-right" data-ng-show="user === 'admin'">
+                            <a class="btn btn-sm btn-primary" href="/#!/menuitems/{{menuitem._id}}/edit">
                                 Edit
                                 <i class="fa fa-edit"></i>
                             </a>
-                            <a class="btn btn-sm btn-danger" data-ng-click="remove(menuitem);" data-ng-show="user === 'admin'">
+                            <a class="btn btn-sm btn-danger" data-ng-click="remove(menuitem);">
                                 <i class="fa fa-trash"></i>
                             </a>
                         </span>
                         <br>
-                        <span data-ng-bind="menuitem.description"></span>
+                        <span class="mute" style="font-style: italic;" data-ng-bind="menuitem.description"></span>
                         <br><br>
                     </span>
-                    <a href="/#!/menuitems/create" class="btn btn-sm btn-success pull-right" data-ng-show="user === 'admin' && categorySelected != ''"> Add more {{categorySelected}}
+                    <a href="/#!/menuitems/create" class="btn btn-sm btn-success pull-right" data-ng-show="user === 'admin' && categorySelected != ''">Add more {{categorySelected}}
                         <i class="fa fa-plus-circle"></i>
                     </a>
                 </div>

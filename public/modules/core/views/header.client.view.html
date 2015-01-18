@@ -35,17 +35,17 @@
 							<b class="caret"></b>
 						</a>
 						<ul ng-switch-when="dropdown" class="dropdown-menu">
-							<li data-ng-repeat="subitem in item.items | orderBy: 'position'" data-ng-if="subitem.shouldRender(authentication.user);" ui-route="{{subitem.uiRoute}}" ng-class="{active: $uiRoute}">
+							<li data-ng-repeat="subitem in item.items | orderBy: 'position'" ui-route="{{subitem.uiRoute}}" ng-class="{active: $uiRoute}">
 								<a href="/#!/{{subitem.link}}" data-ng-bind="subitem.title"></a>
 							</li>
 						</ul>
 						<a ng-switch-default href="/#!/{{item.link}}" data-ng-bind="item.title"></a>
 					</li>
-					<!-- Customer Menu Items -->
+					<!-- Returning Customer Menu Items -->
 					<li data-ng-show="user === 'customer'" data-ng-repeat="item in navbaritems" ui-route="{{item.uiRoute}}" ng-class="{active: $uiRoute}">
 						<a href="/#!/{{item.link}}" data-ng-bind="item.title"></a>
 					</li>
-					<li class="dropdown {{pull_right}}" data-ng-show="user === 'customer' || user === 'admin'">
+					<li class="dropdown {{pull_right}}" data-ng-show="authentication.user">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							<span data-ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
 						</a>
@@ -65,8 +65,12 @@
 							</li>
 						</ul>
 					</li>
-					<li class="pull-right" ui-route="/signin-customer" data-ng-hide="authentication.user">
+					<li class="{{pull_right}}" ui-route="/signin-customer" data-ng-hide="authentication.user">
 						<a href="/#!/signin-customer">Customer Login</a>
+					</li>
+					<!-- Customer Menu Items -->
+					<li data-ng-hide="authentication.user" data-ng-repeat="item in navbaritems" ui-route="{{item.uiRoute}}" ng-class="{active: $uiRoute}">
+						<a href="/#!/{{item.link}}" data-ng-bind="item.title"></a>
 					</li>
 				</ul>
 			</nav>
