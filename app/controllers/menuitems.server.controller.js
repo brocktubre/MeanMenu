@@ -15,8 +15,6 @@ exports.create = function(req, res) {
 	var menuitem = new Menuitem(req.body);
 	menuitem.user = req.user;
 
-	//alert(menuitem.user);
-
 	menuitem.save(function(err) {
 		if (err) {
 			return res.status(400).send({
@@ -102,8 +100,12 @@ exports.menuitemByID = function(req, res, next, id) {
  * Menuitem authorization middleware
  */
 exports.hasAuthorization = function(req, res, next) {
-	if (req.menuitem.user.id !== req.user.id) {
+	// This lets any admin user delete and update
+	if (req.user.roles[1] !== 'admin') {
 		return res.status(403).send('User is not authorized');
 	}
+	/*if (req.menuitem.user.id !== req.user.id) {
+		return res.status(403).send('User is not authorized');
+	}*/
 	next();
 };

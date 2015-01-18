@@ -23,7 +23,7 @@
             <div class="tab-content" data-ng-hide="!(!menuitems.$resolved || menuitems.length)">
                 <div ng-if="categorySelected === getCategory()">
                     <h2 data-ng-bind="categorySelected"></h2>
-                    <span href="/#!/menuitem/{{menuitem._id}}" ng-if="menuitem.category === categorySelected" ng-repeat="menuitem in menuitems | orderBy: 'name'">
+                    <span ng-if="menuitem.category === categorySelected" ng-repeat="menuitem in menuitems | orderBy: 'name'">
                         <span style="font-weight: bold;" data-ng-bind="menuitem.name"></span>
                         <span class="text-warning" data-ng-bind="'$' + menuitem.price" style="font-weight: bold"></span>
                         <span class="btn btn-sm btn-success pull-right" ng-click="addToCart(menuitem);" data-ng-show="user !== 'admin'">
