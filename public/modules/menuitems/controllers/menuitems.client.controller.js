@@ -110,8 +110,6 @@ angular.module('menuitems')
 				console.log(cart);
 			};
 
-			console.log(cart);
-
 			// Find existing Menuitem
 			$scope.findOne = function() {
 				$scope.menuitems = Menuitems.query();
