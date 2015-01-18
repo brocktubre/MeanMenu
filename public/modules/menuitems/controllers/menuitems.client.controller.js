@@ -18,15 +18,18 @@ angular.module('menuitems')
 
 			// defines the current user premission
 			if($scope.authentication.user.roles === undefined)
-				$scope.user = 'customer';
+				$scope.user = 'new-customer';
 			else if($scope.authentication.user.roles[1] === 'admin')
 				$scope.user = 'admin';
 			else if($scope.authentication.user.roles[0] === 'user')
 				$scope.user = 'customer';
 
+			var cart = [];
+
 
 			// Create new Menuitem
 			$scope.create = function() {
+
 				// Create new Menuitem object
 				var menuitem = new Menuitems ({
 					category: toTitleCase($scope.category),
@@ -103,8 +106,11 @@ angular.module('menuitems')
 
 			// adds menu item to cart
 			$scope.addToCart = function(item){
-				alert(item);
+				cart.push(item.name);
+				console.log(cart);
 			};
+
+			console.log(cart);
 
 			// Find existing Menuitem
 			$scope.findOne = function() {

@@ -3,12 +3,12 @@
             <div class="alert alert-warning text-center" data-ng-hide="!menuitems.$resolved || menuitems.length || user === 'customer'" style="margin-top: 25px;">
              No item on the menu, would you like to <a href="/#!/menuitems/create-new">create one</a>?
          </div>
-         <div class="col-md-4 col-sm-4 col-xs-12" style="padding: 25px;"  ng-init="categorySelected = ''">
+         <div class="col-md-4 col-sm-4 col-xs-12" style="padding: 25px;"  data-ng-init="categorySelected = ''">
             <nav class="nav-sidebar" data-ng-hide="!(!menuitems.$resolved || menuitems.length)">
                 <ul class="nav tabs">
                     <li>
                         <a ng-click="showCategoryItems(menuitem.category);" ng-repeat="menuitem in menuitems | unique: 'category' | orderBy: 'category'" class="list-group-item">
-                            <p class="list-group-item-heading" style="font-size: 18px;" data-ng-bind="menuitem.category"></p>
+                            <p class="list-group-item-heading" style="font-size: 18px;" data-ng-bind="menuitem.category"><i class="fa fa-minus-circle"></i></p>
                         </a>
                     </li>
                     <li data-ng-show="user === 'admin'">
@@ -19,14 +19,14 @@
                 </ul>
             </nav>
         </div>
-        <div class="col-md-8 col-sm-8 col-xs-12" style="padding-bottom: 25px;">
+        <div class="col-md-8 col-sm-8 col-xs-12" style="padding-bottom: 25px;" data-ng-init="category = ''">
             <div class="tab-content" data-ng-hide="!(!menuitems.$resolved || menuitems.length)">
                 <div ng-if="categorySelected === getCategory()">
                     <h2 data-ng-bind="categorySelected"></h2>
                     <span href="/#!/menuitem/{{menuitem._id}}" ng-if="menuitem.category === categorySelected" ng-repeat="menuitem in menuitems | orderBy: 'name'">
                         <span style="font-weight: bold;" data-ng-bind="menuitem.name"></span>
                         <span class="text-warning" data-ng-bind="'$' + menuitem.price" style="font-weight: bold"></span>
-                        <span class="btn btn-sm btn-success pull-right" ng-click="addToCart(menuitem._id);" data-ng-show="user === 'customer'">
+                        <span class="btn btn-sm btn-success pull-right" ng-click="addToCart(menuitem);" data-ng-show="user !== 'admin'">
                             Order
                             <i class="fa fa-plus-circle"></i>
                         </span>
