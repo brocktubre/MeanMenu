@@ -129,3 +129,12 @@ input.ng-valid.ng-dirty{
 .btn-default:hover {
 	color: #777777;
 }
+
+.upcoming-events a{
+	color: #333333;
+}
+
+.upcoming-events a:hover{
+	text-decoration: none;
+	color: #3FB168;
+}
