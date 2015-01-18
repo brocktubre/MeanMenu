@@ -9,7 +9,7 @@ angular.module('core').controller('HeaderController', ['$scope', 'Authentication
 		$scope.navbaritems = [
 		{title:'Home', uiRoute:'/#!/', link:'/#!/'},
 		{title:'Menu', uiRoute:'/menu', link:'menuitems'},
-		{title:'Upcoming Events', uiRoute:'/events', link:'events'},
+		{title:'Upcoming Events', uiRoute:'/upcoming-events', link:'upcoming-events'},
 		];
 
 

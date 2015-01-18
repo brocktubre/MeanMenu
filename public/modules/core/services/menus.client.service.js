@@ -10,6 +10,11 @@ angular.module('core').service('Menus', [
 		// Define the menus object
 		this.menus = {};
 
+			// Converts the text the title case and adds s on the end, example: burger -> Burgers
+			var toTitleCase = function(str){
+				return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+			};
+
 		// A private function for rendering decision 
 		var shouldRender = function(user) {
 			if (user) {
@@ -83,6 +88,8 @@ angular.module('core').service('Menus', [
 			// Validate that the menu exists
 			this.validateMenuExistance(menuId);
 
+			menuItemTitle = toTitleCase(menuItemTitle);
+
 			// Push new menu item
 			this.menus[menuId].items.push({
 				title: menuItemTitle,
@@ -105,6 +112,8 @@ angular.module('core').service('Menus', [
 		this.addSubMenuItem = function(menuId, rootMenuItemURL, menuItemTitle, menuItemURL, menuItemUIRoute, isPublic, roles, position) {
 			// Validate that the menu exists
 			this.validateMenuExistance(menuId);
+
+			menuItemTitle = toTitleCase(menuItemTitle);
 
 			// Search for menu item
 			for (var itemIndex in this.menus[menuId].items) {
@@ -163,4 +172,4 @@ angular.module('core').service('Menus', [
 		//Adding the topbar menu
 		this.addMenu('topbar');
 	}
-]);
+	]);

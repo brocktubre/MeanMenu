@@ -1,7 +1,7 @@
 <section data-ng-controller="MenuitemsController" data-ng-init="findCategories()">
     <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12" style="background-color: #F3DEBA; border-top: 5px solid #5F0712;">
-            <div class="alert alert-warning text-center" data-ng-hide="!menuitems.$resolved || menuitems.length || user === 'customer'" style="margin-top: 25px;">
-             No item on the menu, would you like to <a href="/#!/menuitems/create-new">create one</a>?
+        <div class="alert alert-warning text-center" data-ng-hide="!menuitems.$resolved || menuitems.length || user === 'customer'" style="margin-top: 25px;">
+             No items on the menu, would you like to <a href="/#!/menuitems/create-new">create one</a>?
          </div>
          <div class="col-md-4 col-sm-4 col-xs-12" style="padding: 25px;"  data-ng-init="categorySelected = ''">
             <nav class="nav-sidebar" data-ng-hide="!(!menuitems.$resolved || menuitems.length)">
