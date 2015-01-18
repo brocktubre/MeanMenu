@@ -1,0 +1,19 @@
+<section data-ng-controller="UpcomingEventsController" data-ng-init="findOne()">
+	<div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12" style="border: 2px solid #F3DEBA; border-top: none; background-color: #F3DEBA; padding-bottom: 25px;">
+		<h1 data-ng-bind="upcomingEvent.name"></h1>
+		<h3 data-ng-bind="upcomingEvent.date | date: 'fullDate'"></h3>
+		<p "upcomingEvent.startTime === ''">{{upcomingEvent.startTime}}<span data-ng-hide="upcomingEvent.endTime === ''" data-ng-bind="+ '-' + upcomingEvent.endTime"></span><span data-ng-hide="upcomingEvent.startTime === ''"></span><span data-ng-hide="upcomingEvent.cover === null || upcomingEvent.cover === 0" data-ng-bind="', $' + upcomingEvent.cover + ' cover'"></span><span style="font-style: italic;" data-ng-bind="' ' + upcomingEvent.details"></span>
+		</p>
+		<div class="pull-right" data-ng-show="user === 'admin'">
+			<a class="btn btn-sm btn-success" href="/#!/upcoming-events/create">
+				Add new event<i class="fa fa-plus-circle"></i>
+			</a>
+			<a class="btn btn-sm btn-primary" href="/#!/upcoming-events/{{upcomingEvent._id}}/edit">
+				Edit<i class="fa fa-edit"></i>
+			</a>
+			<a class="btn btn-sm btn-danger" data-ng-click="remove();">
+				<i class="fa fa-trash"></i>
+			</a>
+		</div>
+	</div>
+</section>
