@@ -1,3 +1,4 @@
+##########################################
 Hello there! Visit [live app] (http:brocktubre.com:3000) to see the MeanMenu in aciton. 
 
 To use applcaiton as an Admin use:
@@ -13,6 +14,7 @@ Please send any comments or suggestions to my email at brocktubre@gmail.com.
 Please feel free to visit [my site] (http:brocktubre.com) to see other porjects I am currently working on or contributed to. 
 
 Thanks!
+##########################################
 
 [![MEAN.JS Logo](http://meanjs.org/img/logo-small.png)](http://meanjs.org/)
 
