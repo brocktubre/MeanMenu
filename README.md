@@ -1,5 +1,5 @@
 ##########################################
-Hello there! Visit [live app] (http:brocktubre.com:3000) to see the MeanMenu in aciton. 
+Hello there! Visit [this link] (http:brocktubre.com:3000) to see the MeanMenu in aciton. 
 
 To use applcaiton as an Admin use:
 testadmin

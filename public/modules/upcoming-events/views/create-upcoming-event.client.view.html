@@ -1,20 +1,20 @@
 <section data-ng-controller="UpcomingEventsController">
     <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12" style="border: 2px solid #F3DEBA; border-top: none; background-color: #F3DEBA; padding-top: 25px;">
         <div class="col-md-12">
-            <form class="form-horizontal" data-ng-submit="create()" novalidate>
+            <form class="form-horizontal" name="form" data-ng-submit="create()" novalidate>
                 <fieldset>
                     <div class="form-group">
                         <div class="col-md-6">
                             <div class="col-md-12">
                                 <label class="control-label" for="name">Event name</label>
                                 <div class="controls">
-                                    <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Event Name" required>
+                                    <input type="text" data-ng-model="name" name="name" class="form-control" placeholder="Event Name" required>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <label class="control-label" for="date">Event Date</label>
                                 <div class="controls">
-                                    <input type="date" data-ng-model="date" id="date" class="form-control" placeholder="Event Date" required>
+                                    <input type="date" data-ng-model="date" name="date" class="form-control" placeholder="Event Date" required>
                                 </div>
                             </div>
                         </div>
@@ -22,12 +22,12 @@
                             <div class="col-md-12">
                                 <label class="control-label" for="details">Details</label>
                                 <div class="controls">
-                                    <input type="details" data-ng-model="details" id="details" class="form-control" placeholder="Details" rows="15" style="resize: none;">
+                                    <input type="details" data-ng-model="details" name="details" class="form-control" placeholder="Details" rows="15" style="resize: none;">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <label class="control-label" for="startTime">Starting time</label>
-                                <select ng-model="startTime" id="startTime" class="form-control" >
+                                <select ng-model="startTime" name="startTime" class="form-control" >
                                     <option ng-repeat="item in timeList"> 
                                             {{item}}
                                     </option>
@@ -36,19 +36,19 @@
                             <div class="col-md-4">
                                 <label class="control-label" for="endTime">Ending time</label>
                                 <div class="controls">
-                                    <input type="text" data-ng-model="endTime" id="endTime" class="form-control" placeholder="until">
+                                    <input type="text" data-ng-model="endTime" name="endTime" class="form-control" placeholder="until">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <label class="control-label" for="cover">Cover charge</label>
                                 <div class="controls">
-                                    <input type="number" data-ng-model="cover" id="cover" class="form-control" placeholder="5" min="0">
+                                    <input type="number" data-ng-model="cover" name="cover" class="form-control" placeholder="5" min="0">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-success pull-right"> Add Upcoming Event <i class="fa fa-check"></i></button>
+                        <button data-ng-disabled="form.$invalid" type="submit" class="btn btn-success pull-right"> Add Upcoming Event <i class="fa fa-check"></i></button>
                     </div>
                     <div data-ng-show="error" class="text-danger">
                        <strong data-ng-bind="error"></strong>

@@ -1,20 +1,20 @@
 <section data-ng-controller="UpcomingEventsController" data-ng-init="findOne()">
     <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12" style="background-color: #F3DEBA; border-top: 5px solid #5F0712; ">
         <div class="col-md-12">
-            <form class="form-horizontal" data-ng-submit="update()" novalidate>
+            <form class="form-horizontal" name="form" data-ng-submit="update()" novalidate>
                 <fieldset>
                     <div class="form-group">
                         <div class="col-md-6">
                             <div class="col-md-12">
                                 <label class="control-label" for="name">Event name</label>
                                 <div class="controls">
-                                    <input type="text" data-ng-model="upcomingEvent.name" id="name" class="form-control" placeholder="Event Name" required>
+                                    <input type="text" data-ng-model="upcomingEvent.name" name="name" class="form-control" placeholder="Event Name" required>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <label class="control-label" for="date">Event Date</label>
                                 <div class="controls">
-                                    <input type="date" data-ng-model="upcomingEvent.date" id="date" class="form-control" placeholder="Event Date" required>
+                                    <input type="date" data-ng-model="upcomingEvent.date" name="date" class="form-control" placeholder="Event Date" required>
                                 </div>
                             </div>
                         </div>
@@ -22,12 +22,12 @@
                             <div class="col-md-12">
                                 <label class="control-label" for="details">Details</label>
                                 <div class="controls">
-                                    <input type="details" data-ng-model="upcomingEvent.details" id="details" class="form-control" placeholder="Details" rows="15" style="resize: none;">
+                                    <input type="details" data-ng-model="upcomingEvent.details" name="details" class="form-control" placeholder="Details" rows="15" style="resize: none;">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <label class="control-label" for="startTime">Starting time</label>
-                                <select ng-model="upcomingEvent.startTime" id="startTime" class="form-control" >
+                                <select ng-model="upcomingEvent.startTime" name="startTime" class="form-control" required>
                                     <option ng-repeat="item in timeList"> 
                                             {{item}}
                                     </option>
@@ -36,19 +36,20 @@
                             <div class="col-md-4">
                                 <label class="control-label" for="endTime">Ending time</label>
                                 <div class="controls">
-                                    <input type="text" data-ng-model="upcomingEvent.endTime" id="endTime" class="form-control" placeholder="Ending time (leave blank if necessary)">
+                                    <input type="text" data-ng-model="upcomingEvent.endTime" name="endTime" class="form-control" placeholder="Ending time">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <label class="control-label" for="cover">Cover charge</label>
                                 <div class="controls">
-                                    <input type="number" data-ng-model="upcomingEvent.cover" id="cover" class="form-control" placeholder="Cover charge" min="0">
+                                    <input type="number" data-ng-model="upcomingEvent.cover" name="cover" class="form-control" placeholder="Cover charge" min="0">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Update" class="btn btn-warning pull-right">
+                        <button data-ng-disabled="form.$invalid" type="submit" value="Update" class="btn btn-warning pull-right">Update event<i class="fa fa-refresh"></i>
+                        </button>
                     </div>
                     <div data-ng-show="error" class="text-danger">
                        <strong data-ng-bind="error"></strong>

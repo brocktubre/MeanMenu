@@ -1,18 +1,7 @@
 'use strict';
 
 // Menuitems controller
-angular.module('menuitems')
-.service('cartService', function () {
-	return {
-		notes:function () {
-		},
-		addItem:function (menuitem) {
-		},
-		deleteItem:function (id) {
-		}
-	};
-})
-.controller('MenuitemsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Menuitems',
+angular.module('menuitems').controller('MenuitemsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Menuitems',
 	function($scope, $stateParams, $location, Authentication, Menuitems) {
 		$scope.authentication = Authentication;
 
