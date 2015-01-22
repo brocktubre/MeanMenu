@@ -4,7 +4,7 @@
 				<form data-ng-submit="signin()" class="signin form-horizontal" autocomplete="off">
 					<fieldset>
 						<div data-ng-show="error" class="text-center alert alert-danger">
-							<strong data-ng-bind="error"></strong>
+							<strong data-ng-bind="error + '. Attempt : ' + attempt" ></strong>
 						</div>
 						<div class="form-group">
 							<label for="username">Username</label>
