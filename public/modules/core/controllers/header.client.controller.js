@@ -8,8 +8,8 @@ angular.module('core').controller('HeaderController', ['$scope', 'Authentication
 
 		// Defines menu for non admin users
 		$scope.navbaritems = [
-		{title:'Home', uiRoute:'/#!/', link:'/#!/'},
-		{title:'Menu', uiRoute:'/menu', link:'menuitems'},
+		{title:'Home', uiRoute:'/', link:'/#!/'},
+		{title:'Menu', uiRoute:'/menuitems', link:'menuitems'},
 		{title:'Upcoming Events', uiRoute:'/upcoming-events', link:'upcoming-events'},
 		{title:'Contact', uiRoute:'/contact', link:'contact'}
 		];
