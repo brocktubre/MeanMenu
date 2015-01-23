@@ -7,5 +7,8 @@ angular.module('core').controller('FooterController', ['$scope', 'Authentication
 			$scope.pull_right = 'pull-right';
 			$scope.social_icon = 'padding-top: 50px;';
 		}
+		else{
+			$scope.text_center = 'text-center';
+		}
 	}
 ]);
