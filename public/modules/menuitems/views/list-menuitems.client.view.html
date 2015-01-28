@@ -24,6 +24,7 @@
                 <div ng-if="categorySelected === getCategory()">
                     <h2 data-ng-bind="categorySelected"></h2>
                     <span ng-if="menuitem.category === categorySelected" ng-repeat="menuitem in menuitems | orderBy: 'name'">
+                        <!-- <span><img ng-src="http://placehold.it/74x74" alt=""></span><br> -->
                         <span style="font-weight: bold;" data-ng-bind="menuitem.name"></span>
                         <span class="text-warning" data-ng-bind="'$' + menuitem.price" style="font-weight: bold"></span>
                         <span class="btn btn-sm btn-success pull-right" ng-click="addToCart(menuitem);" data-ng-show="user !== 'admin'">
