@@ -33,19 +33,19 @@ body{
 }
 
 .navbar-inverse {
-    background-color: #381402;
-    border: black;
-    border-top: 2px dotted #E7E7E7;
-    border-bottom: 2px dotted #E7E7E7;
-    margin-top: 0;
-    margin-bottom: 0;
-    border-image: none;
+	background-color: #381402;
+	border: black;
+	border-top: 2px dotted #E7E7E7;
+	border-bottom: 2px dotted #E7E7E7;
+	margin-top: 0;
+	margin-bottom: 0;
+	border-image: none;
 }
 
 .navbar .navbar-nav {
-  float: none;
-  vertical-align: top;
-  border-radius: 0;
+	float: none;
+	vertical-align: top;
+	border-radius: 0;
 }
 
 .navbar .navbar-nav >  li{
@@ -81,60 +81,68 @@ body{
 }
 
 .carousel-indicators .active {
-background: #381402;
+	background: #381402;
 }
 
- /* Google Maps styling */
- .google-maps {
-        position: relative;
-        padding-bottom: 75%; /* This is the aspect ratio*/
-        height: 0;
-        overflow: hidden;
-        width: 100%;
-    }
+/* Google Maps styling */
+.google-maps {
+	position: relative;
+	padding-bottom: 75%; /* This is the aspect ratio*/
+	height: 0;
+	overflow: hidden;
+	width: 100%;
+}
 .google-maps iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100% !important;
-        height: 100% !important;
-    }
- /* [END] Google Maps styling*/
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100% !important;
+	height: 100% !important;
+}
+/* [END] Google Maps styling*/
 
 /* #menu-tabs li a{
  	font-size: 20;
- }*/
+ 	}*/
 
- .logo-box{
- 	border: none;
- 	border-radius: 0;
- }
+ 	.logo-box{
+ 		border: none;
+ 		border-radius: 0;
+ 	}
 
- input {
-	margin: 10 0;
-}
+ 	input {
+ 		margin: 10 0;
+ 	}
 
-input.ng-invalid.ng-dirty{
-	border: 1px solid red;
-}
+ 	input.ng-invalid.ng-dirty{
+ 		border: 1px solid red;
+ 	}
 
-input.ng-valid.ng-dirty{
-	border: 1px solid green;
-}
+ 	input.ng-valid.ng-dirty{
+ 		border: 1px solid green;
+ 	}
 
-.btn-default, .btn-default:active, .btn-default:visited {
-	color: black;
-}
+ 	.btn-default, .btn-default:active, .btn-default:visited {
+ 		color: black;
+ 	}
 
-.btn-default:hover {
-	color: #777777;
-}
+ 	.btn-default:hover {
+ 		color: #777777;
+ 	}
 
-.upcoming-events a{
-	color: #333333;
-}
+ 	.upcoming-events a{
+ 		color: #333333;
+ 	}
 
-.upcoming-events a:hover{
-	text-decoration: none;
-	color: #3FB168;
-}
+ 	.upcoming-events a:hover{
+ 		text-decoration: none;
+ 		color: #3FB168;
+ 	}
+
+ 	/* For shopping cart summary */
+ 	.ngCart.cart span[ng-click] {
+ 		cursor: pointer;
+ 	}
+ 	.ngCart.cart .glyphicon.disabled {
+ 		color:#aaa;
+ 	}

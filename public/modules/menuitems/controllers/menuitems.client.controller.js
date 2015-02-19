@@ -1,8 +1,8 @@
 'use strict';
 
 // Menuitems controller
-angular.module('menuitems').controller('MenuitemsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Menuitems',
-	function($scope, $stateParams, $location, Authentication, Menuitems) {
+angular.module('menuitems').controller('MenuitemsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Menuitems', 'ngCart',
+	function($scope, $stateParams, $location, Authentication, Menuitems, ngCart) {
 		$scope.authentication = Authentication;
 
 			// defines the current user premission
@@ -113,5 +113,9 @@ angular.module('menuitems').controller('MenuitemsController', ['$scope', '$state
 				return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 			};
 
-		}
-		]);
+			// Add to cart functionality from ngCart
+			ngCart.setTax(7.5);
+    		ngCart.setShipping(2.99);
+    		console.log (ngCart);
+
+}]);

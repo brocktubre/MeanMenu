@@ -10,5 +10,7 @@ angular.module('core').controller('FooterController', ['$scope', 'Authentication
 		else{
 			$scope.text_center = 'text-center';
 		}
+
+		$scope.year = new Date().getFullYear();
 	}
 ]);

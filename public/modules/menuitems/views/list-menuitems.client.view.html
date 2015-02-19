@@ -27,10 +27,8 @@
                         <!-- <span><img ng-src="http://placehold.it/74x74" alt=""></span><br> -->
                         <span style="font-weight: bold;" data-ng-bind="menuitem.name"></span>
                         <span class="text-warning" data-ng-bind="'$' + menuitem.price" style="font-weight: bold"></span>
-                        <span class="btn btn-sm btn-success pull-right" ng-click="addToCart(menuitem);" data-ng-show="user !== 'admin'">
-                            Order
-                            <i class="fa fa-plus-circle"></i>
-                        </span>
+                        <ngcart-addtocart id="{{menuitem._id}}" name="{{menuitem.name}}" price="{{menuitem.price}}" quantity="1" data-ng-show="user !== 'admin'"> Order <i class="fa fa-plus-circle"></i></ngcart-addtocart>
+
                         <span class="pull-right" data-ng-show="user === 'admin'">
                             <a class="btn btn-sm btn-primary" href="/#!/menuitems/{{menuitem._id}}/edit">
                                 Edit
@@ -52,4 +50,17 @@
         </div>
     </div>
 </section>
+
+<script type="text/ng-template" id="template/ngCart/addtocart.html">
+    <span ng-hide="attrs.id">
+        <a class="btn btn-lg btn-primary" ng-disabled="true" ng-transclude></a>
+    </span>
+    <span ng-show="attrs.id">
+        <span ng-hide="inCart()">
+            <a class="btn btn-sm btn-success pull-right" ng-click="ngCart.addItem(id, name, price, quantity, data)" ng-transclude></a>
+
+        </span>
+        <div class="alert alert-success" ng-show="inCart()"> This item is in your cart </div>
+    </span>
+</script>
 
