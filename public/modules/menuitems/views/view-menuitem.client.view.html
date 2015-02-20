@@ -1,7 +1,7 @@
 <section data-ng-controller="MenuitemsController" data-ng-init="findOne()">
 	<div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12" style="border: 2px solid #F3DEBA; border-top: none; background-color: #F3DEBA; padding-bottom: 25px;">
 		<h1 data-ng-bind="menuitem.name"></h1>
-		<p class="text-warning" style="font-weight: bold;" data-ng-bind="'$' + menuitem.price"></p>
+		<p class="text-warning" style="font-weight: bold;" data-ng-bind="menuitem.price | currency"></p>
 		<p style="font-style: italic;" data-ng-bind="menuitem.description"></p>
 		<p class="text-muted" data-ng-bind="'Category: ' + menuitem.category"></p>
 		<div class="pull-right" data-ng-show="user === 'admin'">
