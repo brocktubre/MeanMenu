@@ -35,5 +35,9 @@ angular.module('core').controller('HeaderController', ['$scope', 'Authentication
 		
 		if(window.innerWidth > 800)
 			$scope.pull_right = 'pull-right';
+
+		ngCart.setTax(7.5);
+    	ngCart.setShipping(0.00);
+    	console.log (ngCart.$cart.items);
 	}
 ]);

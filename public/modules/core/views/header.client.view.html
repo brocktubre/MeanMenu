@@ -66,7 +66,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="{{pull_right}}">
+					<li class="{{pull_right}}" data-ng-show="user !== 'admin'">
 						<a href="/#!/cart"><i class="fa fa-shopping-cart"></i><ngcart-cart></ngcart-cart></a>
 					</li>
 					<li class="{{pull_right}}" ui-route="/signin-customer" data-ng-hide="authentication.user">
@@ -84,7 +84,7 @@
 </div>
 
 <script  type="text/ng-template" id="template/ngCart/cart.html">
-    <span style="color: white;"> {{ ngCart.totalItems() }} </span>
+    <span style="color: white;"> {{ ngCart.totalItems() }} |  {{ ngCart.totalCost() - ngCart.getTax() | currency }}</span>
 
 </script>
 

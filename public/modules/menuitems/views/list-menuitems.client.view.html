@@ -26,7 +26,8 @@
                     <span ng-if="menuitem.category === categorySelected" ng-repeat="menuitem in menuitems | orderBy: 'name'">
                         <!-- <span><img ng-src="http://placehold.it/74x74" alt=""></span><br> -->
                         <span style="font-weight: bold;" data-ng-bind="menuitem.name"></span>
-                        <span class="text-warning" data-ng-bind="'$' + menuitem.price" style="font-weight: bold"></span>
+                        <span class="text-warning" data-ng-bind="menuitem.price | currency" style="font-weight: bold"></span><br>
+                        <span class="mute" style="font-style: italic;" data-ng-bind="menuitem.description"></span>
                         <ngcart-addtocart id="{{menuitem._id}}" name="{{menuitem.name}}" price="{{menuitem.price}}" quantity="1" data-ng-show="user !== 'admin'"> Order <i class="fa fa-plus-circle"></i></ngcart-addtocart>
 
                         <span class="pull-right" data-ng-show="user === 'admin'">
@@ -39,7 +40,6 @@
                             </a>
                         </span>
                         <br>
-                        <span class="mute" style="font-style: italic;" data-ng-bind="menuitem.description"></span>
                         <br><br>
                     </span>
                     <a href="/#!/menuitems/create" class="btn btn-sm btn-success pull-right" data-ng-show="user === 'admin' && categorySelected != ''">Add more {{categorySelected}}
@@ -60,7 +60,7 @@
             <a class="btn btn-sm btn-success pull-right" ng-click="ngCart.addItem(id, name, price, quantity, data)" ng-transclude></a>
 
         </span>
-        <div class="alert alert-success" ng-show="inCart()"> This item is in your cart </div>
+        <div class="alert alert-success" ng-show="inCart()"> This item is in your cart. </div>
     </span>
 </script>
 

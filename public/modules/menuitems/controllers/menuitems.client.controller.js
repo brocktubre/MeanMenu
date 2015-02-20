@@ -115,7 +115,7 @@ angular.module('menuitems').controller('MenuitemsController', ['$scope', '$state
 
 			// Add to cart functionality from ngCart
 			ngCart.setTax(7.5);
-    		ngCart.setShipping(2.99);
+    		ngCart.setShipping(0.00);
     		console.log (ngCart);
 
 }]);
