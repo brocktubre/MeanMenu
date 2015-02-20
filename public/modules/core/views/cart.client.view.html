@@ -3,6 +3,11 @@
         
         <div class="col-md-12">
             <ngcart-cart> </ngcart-cart>
+            <div class="row" ng-show="cartLength !== 0">
+                <button class="btn btn-sm btn-success pull-right" ng-click="addToOrder()" style="margin-left:10px;"> Place order 
+                </button>
+                <a class="btn btn-sm btn-warning pull-right" href="/#!/menuitems"> Continue ordering </a> 
+            </div>
         </div>
 
 </div>
@@ -14,7 +19,7 @@
 <script type="text/ng-template" id="template/ngCart/cart.html">
     <div class="row">
         <div class="alert alert-warning text-center" role="alert" ng-show="ngCart.totalItems() === 0">
-        Your cart is empty. <a href="/#!/menuitems"> Click here to order! </a>
+        Your cart is empty. <a href="/#!/menuitems" style="color: white;"> Click here to order! </a>
         </div>
 
         <div class="table-responsive col-lg-12" ng-show="ngCart.totalItems() > 0">
@@ -60,9 +65,5 @@
                 </tbody>
             </table>
         </div>
-    </div>
-    <div class="row" ng-show="ngCart.totalItems() !== 0">
-        <a class="btn btn-sm btn-success pull-right" href="#" style="margin-left:10px;"> Place order </a>
-        <a class="btn btn-sm btn-warning pull-right" href="/#!/menuitems"> Continue ordering </a> 
     </div>
 </script>

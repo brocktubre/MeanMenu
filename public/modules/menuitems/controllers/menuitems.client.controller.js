@@ -93,12 +93,6 @@ angular.module('menuitems').controller('MenuitemsController', ['$scope', '$state
 				return $scope.categorySelected;
 			};
 
-			// adds menu item to cart
-			$scope.addToCart = function(item){
-				cart.push(item.name);
-				console.log(cart);
-			};
-
 			// Find existing Menuitem
 			$scope.findOne = function() {
 				$scope.menuitems = Menuitems.query();
@@ -116,6 +110,5 @@ angular.module('menuitems').controller('MenuitemsController', ['$scope', '$state
 			// Add to cart functionality from ngCart
 			ngCart.setTax(7.5);
     		ngCart.setShipping(0.00);
-    		console.log (ngCart);
 
 }]);

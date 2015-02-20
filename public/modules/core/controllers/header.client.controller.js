@@ -38,6 +38,5 @@ angular.module('core').controller('HeaderController', ['$scope', 'Authentication
 
 		ngCart.setTax(7.5);
     	ngCart.setShipping(0.00);
-    	console.log (ngCart.$cart.items);
 	}
 ]);
