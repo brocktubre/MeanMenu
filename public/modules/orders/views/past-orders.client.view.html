@@ -16,11 +16,12 @@
     			<p>
     				Total cost: <span style="font-weight: bold;">{{calculateTotal(order) | currency}}</span>
     			</p>
-                <a href="/#!/statusorders" class="btn btn-sm btn-warning" data-ng-show="order.status < 4">View progress<i class="fa fa-angle-double-right"></i></a>
+                <a href="/#!/orders/status" class="btn btn-sm btn-warning" data-ng-show="order.status < 4">View progress<i class="fa fa-angle-double-right"></i></a>
+                <p class="text-success text-center" data-ng-show="order.status === 5">Order Complete</p>
 
             </div>
         </div>
-    <div class="alert alert-warning text-center" data-ng-hide="!orders.$resolved || orders.length" style="margin-bottom: 200px;"> You have never placed an order before. <a href="/#!/menuitems" style="color: white;"> Click here to order! </a> 
+    <div class="alert alert-warning text-center" data-ng-hide="!orders.$resolved || orders.length" style="margin-bottom: 200px;"> You have never placed an order before. <a class="text-default" href="/#!/menuitems"> Click here to order! </a> 
     </div>
     <div>
 </section>

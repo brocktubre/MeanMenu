@@ -47,7 +47,7 @@
 						<a href="/#!/{{item.link}}" data-ng-bind="item.title"></a>
 					</li>
 					<li class="{{pull_right}}" data-ng-show="user !== 'admin'" ng-class="{active: $uiRoute}">
-						<a href="/#!/orders/create"><i class="fa fa-shopping-cart"></i><ngcart-cart></ngcart-cart></a>
+						<a href="/#!/orders/cart"><i class="fa fa-shopping-cart"></i><ngcart-cart></ngcart-cart></a>
 					</li>
 					<li class="dropdown {{pull_right}}" data-ng-show="authentication.user">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -55,7 +55,7 @@
 						</a>
 						<ul class="dropdown-menu">
 							<li data-ng-show="user === 'customer'">
-								<a href="/#!/pastorders">Past Orders</a>
+								<a href="/#!/orders/pastorders">Past Orders</a>
 							</li>
 							<li>
 								<a href="/#!/settings/profile">Edit Profile</a>

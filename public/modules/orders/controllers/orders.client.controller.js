@@ -18,6 +18,7 @@ angular.module('orders').controller('OrdersController', ['$scope', '$stateParams
     	ngCart.setShipping(0.00);
     	$scope.cartLength = ngCart.getCart().items.length;
 
+
 		// Create new Order
 		$scope.create = function() {
 			// Create new Order object
@@ -29,12 +30,23 @@ angular.module('orders').controller('OrdersController', ['$scope', '$stateParams
 
 			// Redirect after save
 			order.$save(function(response) {
-				alert('Thank you for your order!');
-				$location.path('/');
-				ngCart.empty();
 
-				// Clear form fields
-				$scope.name = '';
+				if($scope.user === 'customer'){
+					alert('Thank you for your order! Click OK to view status of order.');
+					$location.path('orders/status');
+					ngCart.empty();
+				}
+				else if($scope.user === 'new-customer'){
+					if(confirm('Continue as guest? Cancel to sign in or create and account.')){
+						alert('Thank you for your order!');
+						$location.path('/');
+						ngCart.empty();
+					}
+					else
+						$location.path('signin-customer');
+
+				}
+
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
@@ -101,9 +113,9 @@ angular.module('orders').controller('OrdersController', ['$scope', '$stateParams
 
 		$scope.findLiveOrders = function() {
 			$scope.orders = Orders.query();
-			setTimeout(function(){
+			/*setTimeout(function(){
    			window.location.reload(1);
-			}, 60000);
+			}, 60000);*/
 
 		};
 
