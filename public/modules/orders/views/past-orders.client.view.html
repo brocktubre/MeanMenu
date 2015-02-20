@@ -1,0 +1,26 @@
+<section data-ng-controller="OrdersController" data-ng-init="find()">
+	<div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12" style="background-color: #F3DEBA; padding: 25px 25px;">
+        <div class="col-md-4 col-sm-12 col-xs-12" data-ng-repeat="order in orders | orderBy: '-timestamp' |  filter:{ user: authentication.user._id }">
+            <div class="well well-lg">
+                <h4 class="text-center" style="font-weight: bold;">
+                    Order ID: 
+                    <span data-ng-bind="order._id.slice(-5)"></span><br>
+                </h4>
+                <p class="text-center" style="font-weight: bold;">
+                    Order placed
+                    <span data-ng-bind="order.timestamp | date:'mediumDate'"></span>
+                </p>
+                <span data-ng-repeat="entrees in order.items">
+                        <p data-ng-bind="entrees._quantity + ' x ' + entrees._name"></p>
+                </span>
+    			<p>
+    				Total cost: <span style="font-weight: bold;">{{calculateTotal(order) | currency}}</span>
+    			</p>
+                <a href="/#!/statusorders" class="btn btn-sm btn-warning" data-ng-show="order.status < 4">View progress<i class="fa fa-angle-double-right"></i></a>
+
+            </div>
+        </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!orders.$resolved || orders.length" style="margin-bottom: 200px;"> You have never placed an order before. <a href="/#!/menuitems" style="color: white;"> Click here to order! </a> 
+    </div>
+    <div>
+</section>

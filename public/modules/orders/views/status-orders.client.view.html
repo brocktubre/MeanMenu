@@ -1,0 +1,48 @@
+<section data-ng-controller="OrdersController" data-ng-init="findLiveOrders()">
+	<div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12" style="background-color: #F3DEBA; padding: 25px 25px;">
+		<div data-ng-repeat="order in orders | orderBy: '-timestamp' |  filter:{ user: authentication.user._id} | filter: inView('status', 5)">
+			<div class="well">
+				<h4 class="text-center" style="font-weight: bold;">
+					Order ID: 
+					<span data-ng-bind="order._id.slice(-5)"></span><br>
+				</h4>
+				<p class="text-center" style="font-weight: bold;">
+					Order placed
+					<span data-ng-bind="order.timestamp | date:'mediumDate'"></span>
+					at
+                <span data-ng-bind="order.timestamp | date: 'mediumTime'"></span>
+				</p>
+				<span data-ng-repeat="entrees in order.items">
+					<p data-ng-bind="entrees._quantity + ' x ' + entrees._name"></p>
+				</span>
+				<p>
+					Total cost: <span style="font-weight: bold;">{{calculateTotal(order) | currency}}</span>
+				</p>
+				<div class="progress" data-ng-hide="order.status > 3">
+					<div data-ng-show="order.status === 1" class="progress-bar progress-bar-danger progress-bar-striped active"  role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+						<span class="sr-only">20%</span>
+					</div>
+					<div data-ng-show="order.status === 2" class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+						<span class="sr-only">50%</span>
+					</div>
+					<div data-ng-show="order.status === 3" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+						<span class="sr-only">100%</span>
+					</div>
+				</div>
+				<div class="text-center" data-ng-show="order.status === 1">
+					<h4> Your order has been recieved. </h4>
+				</div>
+				<div class="text-center" data-ng-show="order.status === 2">
+					<h4> Your order is being cooked.. </h4>
+				</div>
+				<div class="text-center" data-ng-show="order.status === 3">
+					<h4> Your order is done and ready for pick up! </h4>
+				</div>
+				<div class="text-center" data-ng-show="order.status === 4">
+					<h4> Your order has been picked up. Thank you for you business! </h4>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</section>
