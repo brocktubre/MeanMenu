@@ -3,18 +3,18 @@
   "version": "0.0.1",
   "description": "Online food ordering thingy.",
   "dependencies": {
-    "bootstrap": "~3",
-    "angular": "~1.2",
-    "angular-resource": "~1.2",
-    "angular-mocks": "~1.2",
-    "angular-cookies": "~1.2",
-    "angular-animate": "~1.2",
-    "angular-touch": "~1.2",
-    "angular-sanitize": "~1.2",
-    "angular-bootstrap": "~0.11.2",
-    "angular-ui-utils": "~0.1.1",
-    "angular-ui-router": "~0.2.11",
-    "bootswatch": "~3.3.1+2",
-    "ngcart": "~0.0.2-rc.1.0"
+    "bootstrap": "v3",
+    "angular": "v1.2",
+    "angular-resource": "v1.2",
+    "angular-mocks": "v1.2",
+    "angular-cookies": "v1.2",
+    "angular-animate": "v1.2",
+    "angular-touch": "v1.2",
+    "angular-sanitize": "v1.2",
+    "angular-bootstrap": "v0.11.2",
+    "angular-ui-utils": "v0.1.1",
+    "angular-ui-router": "v0.2.11",
+    "bootswatch": "v3.3.1+2",
+    "ngcart": "v0.0.2-rc.1.0"
   }
 }

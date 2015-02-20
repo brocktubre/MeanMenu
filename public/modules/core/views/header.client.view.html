@@ -41,12 +41,12 @@
 						</ul>
 						<a ng-switch-default href="/#!/{{item.link}}" data-ng-bind="item.title"></a>
 					</li>
-					<li data-ng-show="user === 'admin'"><a href="#!/orders">Live Orders</a></li>
+					<li data-ng-show="user === 'admin'" ng-class="{active: $uiRoute}"><a href="#!/orders">Live Orders</a></li>
 					<!-- Returning Customer Menu Items -->
 					<li data-ng-show="user === 'customer'" data-ng-repeat="item in navbaritems" ui-route="{{item.uiRoute}}" ng-class="{active: $uiRoute}">
 						<a href="/#!/{{item.link}}" data-ng-bind="item.title"></a>
 					</li>
-					<li class="{{pull_right}}" data-ng-show="user !== 'admin'">
+					<li class="{{pull_right}}" data-ng-show="user !== 'admin'" ng-class="{active: $uiRoute}">
 						<a href="/#!/orders/create"><i class="fa fa-shopping-cart"></i><ngcart-cart></ngcart-cart></a>
 					</li>
 					<li class="dropdown {{pull_right}}" data-ng-show="authentication.user">
@@ -54,6 +54,9 @@
 							<span data-ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu">
+							<li data-ng-show="user === 'customer'">
+								<a href="/#!/pastorders">Past Orders</a>
+							</li>
 							<li>
 								<a href="/#!/settings/profile">Edit Profile</a>
 							</li>
