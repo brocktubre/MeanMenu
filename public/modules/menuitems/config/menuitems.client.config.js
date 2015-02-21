@@ -8,5 +8,6 @@ angular.module('menuitems').run(['Menus',
 		Menus.addMenuItem('topbar', 'Menu', 'menuitems', 'dropdown', '/menuitems(/create)?');
 		Menus.addSubMenuItem('topbar', 'menuitems', 'View Menu', 'menuitems');
 		Menus.addSubMenuItem('topbar', 'menuitems', 'Add New Menu Item', 'menuitems/create');
+		Menus.addSubMenuItem('topbar', 'menuitems', 'Add Special', 'menuitems/create-special');
 	}
 ]);

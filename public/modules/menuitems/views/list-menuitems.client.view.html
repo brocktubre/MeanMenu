@@ -8,12 +8,13 @@
                 <ul class="nav tabs">
                     <li>
                         <a ng-click="showCategoryItems(menuitem.category);" ng-repeat="menuitem in menuitems | unique: 'category' | orderBy: 'category'" class="list-group-item">
-                            <p class="list-group-item-heading" style="font-size: 18px;" data-ng-bind="menuitem.category"><i class="fa fa-minus-circle"></i></p>
+                            <p class="list-group-item-heading" style="font-size: 18px;" data-ng-bind="menuitem.category" ng-hide="menuitem.category === 'Specials'"></p>
+                            <p class="list-group-item-heading" style="font-size: 18px;" ng-show="menuitem.category === 'Specials'">Today's Special</p>
                         </a>
                     </li>
                     <li data-ng-show="user === 'admin'">
                         <a href="/#!/menuitems/create-new" class="list-group-item">
-                            <p class="list-group-item-heading"> Add new category <i class="fa fa-plus-circle"></i></p>
+                            <p style="font-size: 18px;" class="list-group-item-heading"> Add new category <i class="fa fa-plus-circle"></i></p>
                         </a>
                     </li> 
                 </ul>
@@ -22,16 +23,22 @@
         <div class="col-md-8 col-sm-8 col-xs-12" style="padding-bottom: 25px;" data-ng-init="category = ''">
             <div class="tab-content" data-ng-hide="!(!menuitems.$resolved || menuitems.length)">
                 <div ng-if="categorySelected === getCategory()">
-                    <h2 data-ng-bind="categorySelected"></h2>
-                    <span ng-if="menuitem.category === categorySelected" ng-repeat="menuitem in menuitems | orderBy: 'name'">
-                        <!-- <span><img ng-src="http://placehold.it/74x74" alt=""></span><br> -->
-                        <span style="font-weight: bold;" data-ng-bind="menuitem.name"></span>
+                    <h2 data-ng-bind="categorySelected" ng-hide="getCategory() === 'Specials'"></h2>
+                    <h2 ng-show="categorySelected === 'Specials'">Today's Special</h2>
+                    <span ng-if="menuitem.category === categorySelected" ng-hide="categorySelected === 'Specials' && !getTodaysSpecial(menuitem)" ng-repeat="menuitem in menuitems | orderBy: 'name'">
+                        <span style="font-weight: bold;" data-ng-bind="menuitem.name" ></span>
                         <span class="text-warning" data-ng-bind="menuitem.price | currency" style="font-weight: bold"></span><br>
-                        <span class="mute" style="font-style: italic;" data-ng-bind="menuitem.description"></span>
+                        <span class="mute" style="font-style: italic;" data-ng-bind="menuitem.description"></span><br>
+                        <span class="mute" data-ng-bind="menuitem.created"></span>
                         <ngcart-addtocart id="{{menuitem._id}}" name="{{menuitem.name}}" price="{{menuitem.price}}" quantity="1" data-ng-show="user !== 'admin'"> Order <i class="fa fa-plus-circle"></i></ngcart-addtocart>
 
                         <span class="pull-right" data-ng-show="user === 'admin'">
-                            <a class="btn btn-sm btn-primary" href="/#!/menuitems/{{menuitem._id}}/edit">
+
+                            <a class="btn btn-sm btn-primary" href="/#!/menuitems/{{menuitem._id}}/edit" ng-show="menuitem.category !== 'Specials'">
+                                Edit
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <a class="btn btn-sm btn-primary" href="/#!/menuitems/{{menuitem._id}}/edit-special" ng-show="menuitem.category === 'Specials'">
                                 Edit
                                 <i class="fa fa-edit"></i>
                             </a>
@@ -42,7 +49,10 @@
                         <br>
                         <br><br>
                     </span>
-                    <a href="/#!/menuitems/create" class="btn btn-sm btn-success pull-right" data-ng-show="user === 'admin' && categorySelected != ''">Add more {{categorySelected}}
+                    <a href="/#!/menuitems/create" class="btn btn-sm btn-success pull-right" data-ng-show="user === 'admin' && categorySelected != '' && categorySelected != 'Specials'">Add more {{categorySelected}}
+                        <i class="fa fa-plus-circle"></i>
+                    </a>
+                    <a href="/#!/menuitems/create-special" class="btn btn-sm btn-success pull-right" data-ng-show="user === 'admin' && categorySelected === 'Specials'">Add more {{categorySelected}}
                         <i class="fa fa-plus-circle"></i>
                     </a>
                 </div>

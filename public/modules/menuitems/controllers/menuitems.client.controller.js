@@ -13,19 +13,34 @@ angular.module('menuitems').controller('MenuitemsController', ['$scope', '$state
 			else if($scope.authentication.user.roles[0] === 'user')
 				$scope.user = 'customer';
 
-			var cart = [];
+			$scope.dotw = '';
 
 
 			// Create new Menuitem
 			$scope.create = function() {
 
-				// Create new Menuitem object
-				var menuitem = new Menuitems ({
-					category: toTitleCase($scope.category),
-					name: toTitleCase(this.name),
-					price: $scope.price,
-					description: this.description
-				});
+				var menuitem = new Menuitems();
+
+				if($scope.dotw !== ''){
+					$scope.category = 'Specials';
+					// Create new Special Menuitem object
+					menuitem = new Menuitems ({
+						category: toTitleCase($scope.category),
+						name: toTitleCase(this.name),
+						price: $scope.price,
+						description: this.description,
+						dotw: $scope.dotw
+					});
+				}
+				else{
+					// Create new Menuitem object
+					menuitem = new Menuitems ({
+						category: toTitleCase($scope.category),
+						name: toTitleCase(this.name),
+						price: $scope.price,
+						description: this.description
+					});
+				}
 
 				// Redirect after save
 				menuitem.$save(function(response) {
@@ -91,6 +106,54 @@ angular.module('menuitems').controller('MenuitemsController', ['$scope', '$state
 			// grabs the currently selected menu category
 			$scope.getCategory = function(){
 				return $scope.categorySelected;
+			};
+
+			$scope.getTodaysSpecial = function(menuitem){
+				var d = new Date();
+				var n = d.getDay();
+				if(menuitem.dotw === n)
+					return true;
+				else
+					return false;
+			};
+
+			$scope.getToday = function(){
+				var d = new Date();
+				var n = d.getDay();
+				return n;
+			};
+
+			$scope.whatDay = function(dotw_value){
+				var day = '';
+
+				switch(dotw_value){
+					case 1: 
+						day = 'Monday';
+						break;
+					case 2: 
+						day = 'Tuesday';
+						break;
+					case 3: 
+						day =  'Wednesday';
+						break;
+					case 4: 
+						day =  'Thursday';
+						break;
+					case 5: 
+						day =  'Friday';
+						break;
+					case 6: 
+						day =  'Saturday';
+						break;
+					case 7: 
+						day =  'Sunday';
+						break;
+					default:
+						break;	
+					}
+
+					return(day);
+
 			};
 
 			// Find existing Menuitem

@@ -2,7 +2,7 @@
 	<div class="container-fluid" style="margin-top: 25px;" data-ng-hide="authentication.user">
 		<div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12">
 			<div class="pull-right" ui-route="/signin" ng-class="{active: $uiRoute}">
-				<a href="/#!/signin" class="btn btn-sm btn-default"><i class="fa fa-lock"></i>Employee Login</a>
+				<a style="color: white;" href="/#!/signin" class="btn btn-sm btn-default"><i class="fa fa-lock"></i>Employee Login</a>
 			</div>
 		</div>
 	</div>
@@ -75,8 +75,6 @@
 					<li class="{{pull_right}}" ui-route="/signin-customer" data-ng-hide="authentication.user">
 						<a href="/#!/signin-customer">Customer Login</a>
 					</li>
-					
-					<!-- Customer Menu Items -->
 					<li data-ng-hide="authentication.user" data-ng-repeat="item in navbaritems" ui-route="{{item.uiRoute}}" ng-class="{active: $uiRoute}">
 						<a href="/#!/{{item.link}}" data-ng-bind="item.title"></a>
 					</li>

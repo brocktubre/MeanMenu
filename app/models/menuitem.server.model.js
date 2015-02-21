@@ -33,6 +33,10 @@ var MenuitemSchema = new Schema({
 		required: 'Please input a price.',
 		trim: true
 	},
+	dotw:{
+		type: Number,
+		default: 0
+	},
 	created: {
 		type: Date,
 		default: Date.now

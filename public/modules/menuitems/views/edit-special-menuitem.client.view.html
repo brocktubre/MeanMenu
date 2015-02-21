@@ -1,0 +1,52 @@
+<section data-ng-controller="MenuitemsController" data-ng-init="findOne()">
+    <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12" style="background-color: #F3DEBA; border-top: 5px solid #5F0712; ">
+        <div class="col-md-12">
+            <form class="form-horizontal" name="form" data-ng-submit="update()" novalidate>
+                <fieldset>
+                    <div class="form-group">
+                        <div class="col-md-12" style="margin-top: 25px;">
+                            <div class="col-md-10 col-md-offset-2" style="margin-bottom: 35px;">
+                                <label class="radio-inline"><input type="radio" name="optradio" ng-model="dotw" value="1" required>Monday </label>
+                                <label class="radio-inline"><input type="radio" name="optradio" ng-model="dotw" value="2" required>Tuesday </label>
+                                <label class="radio-inline"><input type="radio" name="optradio" ng-model="dotw" value="3" required>Wednesday </label>
+                                <label class="radio-inline"><input type="radio" name="optradio" ng-model="dotw" value="4" required>Thursday </label>
+                                <label class="radio-inline"><input type="radio" name="optradio" ng-model="dotw" value="5" required>Friday </label>
+                                <label class="radio-inline"><input type="radio" name="optradio" ng-model="dotw" value="6" required>Saturday </label>
+                                <label class="radio-inline"><input type="radio" name="optradio" ng-model="dotw" value="7" required>Sunday </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-md-12">
+                                <label class="control-label" for="name">Name</label>
+                                <div class="controls">
+                                    <input type="text" data-ng-model="menuitem.name" name="name" class="form-control" placeholder="Name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="control-label" for="price">Price</label>
+                                <div class="controls">
+                                    <input type="value" data-ng-model="menuitem.price" name="price" class="form-control" placeholder="Price" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-md-12">
+                                <label class="control-label" for="description">Description</label>
+                                <div class="controls">
+                                    <textarea type="text" data-ng-model="menuitem.description" name="description" class="form-control" placeholder="Description" rows="8" style="resize: none;"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button data-ng-disabled="form.$invalid" type="submit" value="Update" class="btn btn-warning pull-right">Update item<i class="fa fa-refresh"></i>
+                        </button>
+                    </div>
+                    <div data-ng-show="error" class="text-danger">
+                     <strong data-ng-bind="error"></strong>
+                 </div>
+             </fieldset>
+         </form>
+     </div>
+ </div>
+</section>
