@@ -1,5 +1,5 @@
 <section data-ng-controller="MenuitemsController" data-ng-init="findCategories()">
-    <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12" style="background-color: #F3DEBA; border-top: 5px solid #5F0712;">
+    <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12" style="background-color: #F3DEBA;">
         <div class="alert alert-warning text-center" data-ng-hide="!menuitems.$resolved || menuitems.length || user === 'customer'" style="margin-top: 25px;">
              No items on the menu, would you like to <a href="/#!/menuitems/create-new">create one</a>?
          </div>
@@ -28,8 +28,7 @@
                     <span ng-if="menuitem.category === categorySelected" ng-hide="categorySelected === 'Specials' && !getTodaysSpecial(menuitem)" ng-repeat="menuitem in menuitems | orderBy: 'name'">
                         <span style="font-weight: bold;" data-ng-bind="menuitem.name" ></span>
                         <span class="text-warning" data-ng-bind="menuitem.price | currency" style="font-weight: bold"></span><br>
-                        <span class="mute" style="font-style: italic;" data-ng-bind="menuitem.description"></span><br>
-                        <span class="mute" data-ng-bind="menuitem.created"></span>
+                        <span class="mute" style="font-style: italic;" data-ng-bind="menuitem.description"></span>
                         <ngcart-addtocart id="{{menuitem._id}}" name="{{menuitem.name}}" price="{{menuitem.price}}" quantity="1" data-ng-show="user !== 'admin'"> Order <i class="fa fa-plus-circle"></i></ngcart-addtocart>
 
                         <span class="pull-right" data-ng-show="user === 'admin'">
@@ -49,6 +48,8 @@
                         <br>
                         <br><br>
                     </span>
+                    <a href="/#!/orders/cart" ng-show="ngCart.getTotalItems !== 0 && categorySelected != '' && user !== 'admin'" class="btn btn-primary btn-sm col-md-3 pull-right" style="margin-top: 50px;">Proceed to Checkout<i class="fa fa-arrow-right"></i></a>
+
                     <a href="/#!/menuitems/create" class="btn btn-sm btn-success pull-right" data-ng-show="user === 'admin' && categorySelected != '' && categorySelected != 'Specials'">Add more {{categorySelected}}
                         <i class="fa fa-plus-circle"></i>
                     </a>

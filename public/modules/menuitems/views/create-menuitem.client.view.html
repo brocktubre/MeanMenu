@@ -12,7 +12,7 @@
                                     <i class="fa fa-minus-circle text-success" ng-show="addNew" ng-click="addNew = false"></i>
                                     <!-- Category defined -->
                                     <select ng-model="category" ng-show="!addNew" name="category" class="form-control" >
-                                        <option ng-repeat="menuitem in menuitems | unique: 'category' | orderBy: 'category'"> 
+                                        <option ng-repeat="menuitem in menuitems | unique: 'category' | orderBy: 'category'" ng-hide="menuitem.category === 'Specials'"> 
                                             {{menuitem.category}}
                                         </option>
                                     </select>

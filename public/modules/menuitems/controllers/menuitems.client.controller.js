@@ -15,13 +15,14 @@ angular.module('menuitems').controller('MenuitemsController', ['$scope', '$state
 
 			$scope.dotw = '';
 
-
 			// Create new Menuitem
 			$scope.create = function() {
 
 				var menuitem = new Menuitems();
 
 				if($scope.dotw !== ''){
+
+
 					$scope.category = 'Specials';
 					// Create new Special Menuitem object
 					menuitem = new Menuitems ({
@@ -108,6 +109,7 @@ angular.module('menuitems').controller('MenuitemsController', ['$scope', '$state
 				return $scope.categorySelected;
 			};
 
+
 			$scope.getTodaysSpecial = function(menuitem){
 				var d = new Date();
 				var n = d.getDay();
@@ -117,12 +119,14 @@ angular.module('menuitems').controller('MenuitemsController', ['$scope', '$state
 					return false;
 			};
 
+			// grabs today's date
 			$scope.getToday = function(){
 				var d = new Date();
 				var n = d.getDay();
 				return n;
 			};
 
+			// finds the day of hte week the special is associated with
 			$scope.whatDay = function(dotw_value){
 				var day = '';
 
@@ -155,6 +159,8 @@ angular.module('menuitems').controller('MenuitemsController', ['$scope', '$state
 					return(day);
 
 			};
+
+
 
 			// Find existing Menuitem
 			$scope.findOne = function() {

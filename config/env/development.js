@@ -6,18 +6,18 @@ module.exports = {
 		title: 'MeanMenu_v3 - Development Environment'
 	},
 	facebook: {
-		clientID: process.env.FACEBOOK_ID || 'APP_ID',
-		clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',
+		clientID: process.env.FACEBOOK_ID || '1374287992890868',
+		clientSecret: process.env.FACEBOOK_SECRET || '872e49d9c7ed4e890fbb09b943d1d582',
 		callbackURL: '/auth/facebook/callback'
 	},
 	twitter: {
-		clientID: process.env.TWITTER_KEY || 'CONSUMER_KEY',
-		clientSecret: process.env.TWITTER_SECRET || 'CONSUMER_SECRET',
+		clientID: process.env.TWITTER_KEY || 'zFSY5vPiOE8J4stlyg7oWkYm0',
+		clientSecret: process.env.TWITTER_SECRET || 'xPKGwGcfoxaCoUrs0mXotHojGzV7qAEHlmsyVF5lXdYtBplpov',
 		callbackURL: '/auth/twitter/callback'
 	},
 	google: {
-		clientID: process.env.GOOGLE_ID || 'APP_ID',
-		clientSecret: process.env.GOOGLE_SECRET || 'APP_SECRET',
+		clientID: process.env.GOOGLE_ID || '221767823672-9a0bfbl9i2poglsfdk7ggc9vgp5pelmn.apps.googleusercontent.com',
+		clientSecret: process.env.GOOGLE_SECRET || 'lVCH_qy4mOZxRMs5fX-YIkFq',
 		callbackURL: '/auth/google/callback'
 	},
 	linkedin: {
