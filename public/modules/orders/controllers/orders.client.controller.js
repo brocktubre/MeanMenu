@@ -3,6 +3,8 @@
 // Orders controller
 angular.module('orders').controller('OrdersController', ['$scope', '$stateParams', '$location', 'Authentication', 'ngCart', 'Orders',
 	function($scope, $stateParams, $location, Authentication, ngCart, Orders) {
+		// This is a change to the develop branch
+
 		$scope.authentication = Authentication;
 
 		// defines the current user premission
